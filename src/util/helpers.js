@@ -93,6 +93,7 @@ const validateImageFile = async (file) => {
 
 
 const addMinutesToTime = (timeStr, minutesToAdd) => {
+  if (timeStr === null || timeStr === undefined) return null;
   // Convert input string to Date object
   let timeObj = new Date(`1970-01-01T${timeStr}Z`);
   // Add specified number of minutes

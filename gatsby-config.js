@@ -42,8 +42,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-apollo',
       options: {
-        uri: 'http://localhost:4000/graphql',
-        // uri: 'https://api.alli.io/graphql',
+        // uri: 'http://localhost:4000/graphql',
+        uri: 'https://api.alli.io/graphql',
       }
     },
     {
@@ -51,9 +51,9 @@ module.exports = {
       options: {
         typeName: 'AlliAPI',
         fieldName: 'alliApi',
-        // url: 'https://api.alli.io/graphql',
-        url: 'http://localhost:4000/graphql',
-        refetchInterval: 60, // Refetch data every 60 seconds (optional)
+        url: 'https://api.alli.io/graphql',
+        // url: 'http://localhost:4000/graphql',
+        // refetchInterval: 60, // Refetch data every 60 seconds (optional)
       },
     },
     {
