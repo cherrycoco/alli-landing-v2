@@ -1,21 +1,15 @@
 import React, { useState } from 'react'
 import Layout from '../../components/layout/layout'
-import GET_PROS from '../../graphql/query/pros';
-import { useQuery } from '@apollo/react-hooks';
 import Filters from '../../components/filter/filters'
 import TherapistList from '../../components/therapist/therapistList';
-import Loading from '../../components/loading/loading';
 import { Link } from 'gatsby';
 
-const Therapists = () => {
-  const { loading, error, data } = useQuery(GET_PROS);
+const Therapists = ({ pageContext }) => {
+  const { pros, specializations, modalities } = pageContext;
   const [specialization, setSpecialization] = useState(null);
   const [tier, setTier] = useState(null);
   const [modality, setModality] = useState(null);
   const [available, setAvailable] = useState(false);
-
-  if (loading) return <Loading />;
-  if (error) return `Error! ${error.message}`;
 
   const handleClear = () => {
     setSpecialization(null);
@@ -47,6 +41,8 @@ const Therapists = () => {
               modality={modality}
               setModality={setModality}
               clear={handleClear}
+              specializations={specializations}
+              modalities={modalities}
             />
           </div>
           <div className="relative flex justify-end	mt-6 items-start">
@@ -66,7 +62,7 @@ const Therapists = () => {
               </label>
             </div>
           </div>
-          <TherapistList pros={data.pros} specialization={specialization} modality={modality} tier={tier} available={available} />
+          <TherapistList pros={pros} specialization={specialization} modality={modality} tier={tier} available={available} />
         </div>
       </div>
     </Layout>

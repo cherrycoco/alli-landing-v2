@@ -83,7 +83,40 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     `);
 
+    const modality = await graphql(`
+      {
+        alliApi {
+          modalities {
+            id
+            name
+          }
+        }
+      }
+    `);
+
+    const specialization = await graphql(`
+      {
+        alliApi {
+          specializations {
+            id
+            name
+          }
+        }
+      }
+    `);
+
+
     console.log('data', data);
+
+    createPage({
+      path: `/therapists`,
+      component: require.resolve('./src/pages/therapists/all.js'),
+      context: {
+        pros: data.alliApi.pros,
+        modalities: modality.data.alliApi.modalities,
+        specializations: specialization.data.alliApi.specializations,
+      },
+    });
 
     data.alliApi.pros.forEach((pro) => {
       createPage({

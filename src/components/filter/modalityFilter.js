@@ -8,10 +8,10 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const ModalityFilter = ({ selected, onChange }) => {
-  const { error, loading, data } = useQuery(GET_MODALITIES);
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+const ModalityFilter = ({ selected, onChange, modalities }) => {
+  // const { error, loading, data } = useQuery(GET_MODALITIES);
+  // if (loading) return <p>Loading...</p>;
+  // if (error) return <p>Error :(</p>;
 
   return (
     <Combobox className="flex-1" as="div" value={selected} onChange={onChange}>
@@ -27,7 +27,7 @@ const ModalityFilter = ({ selected, onChange }) => {
         </Combobox.Button>
 
         <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base text-left shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-          {data.modalities.map((item) => (
+          {modalities.map((item) => (
             <Combobox.Option
               key={item.id}
               value={item}
