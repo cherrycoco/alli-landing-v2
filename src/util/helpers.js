@@ -104,6 +104,20 @@ const addMinutesToTime = (timeStr, minutesToAdd) => {
   return newTimeStr;
 }
 
+const utmParser = (utm) => {
+  const result = {};
+
+  const utmArr = utm.split('&');
+
+  utmArr.forEach(param => {
+    const paramArr = param.split('=');
+    result[paramArr[0]] = paramArr[1];
+  });
+  
+  return result;
+};
+
+export default utmParser;
 
 export { 
   capitalize,
@@ -115,4 +129,5 @@ export {
   splitAndJoin,
   validateImageFile,
   addMinutesToTime,
+  utmParser,
 };

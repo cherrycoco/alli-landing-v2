@@ -10,10 +10,10 @@
 
 module.exports = {
   siteMetadata: {
-    title: `Alli Therapists`,
-    description: `Alli Therapists`,
-    author: `@cherrycoco`,
-    siteUrl: `https://welcome.alli.io`,
+    title: `Alli Therapy - Online Therapy for Parents in Ontario`,
+    description: `Get matched easily with a licensed counsellor who specialize in helping parents. Our therapists understand the journey of parenthood and are here to help you navigate the challenges.`,
+    author: `@alli.io`,
+    siteUrl: `https://www.alli.io`,
   },
   plugins: [
     `gatsby-plugin-sitemap`,
@@ -59,15 +59,30 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `alli`,
+        short_name: `alli`,
         start_url: `/`,
         background_color: `#663399`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
+        theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/favicon-yellow.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-plugin-segment-js`,
+      options: {
+        prodKey: `g1y1wUMhBzw5YTQDcxVFbYhrfLhyPstD`,
+        trackPage: true,
+  
+        // number (defaults to 50); time to wait after a route update before it should
+        // track the page change, to implement this, make sure your `trackPage` property is set to `true`
+        trackPageDelay: 50,
+      }
+    },
+    {
+      resolve: `gatsby-plugin-fullstory`,
+      options: {
+        fs_org: 'P1RDS',
       },
     },
   ],

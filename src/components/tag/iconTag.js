@@ -2,7 +2,7 @@ import React from 'react';
 
 const IconTag = ({ icon, text }) => {
   return (
-    <div className='flex items-center mr-4 bg-primary-100 py-1 px-4 rounded-full'>
+    <div className='flex items-center mr-2 mt-2 bg-primary-100 py-1 px-4 rounded-full'>
       <svg height='24px' width='24px'>
         <path d={icon} fill="#155E75" />
       </svg>

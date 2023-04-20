@@ -22,7 +22,7 @@ const HeaderTags = ({ data }) => {
   }, [role]);
 
   return (
-    <div className="flex">
+    <div className="flex flex-wrap">
       <IconTag icon={locationIcon} text='Ontario' />
       <IconTag icon={newIcon} text={isAccepting ? 'Accepting New Clients' : 'Waitlisting New Clients'} />
       <IconTag icon={priceIcon} text={`$${min} - $${max}`} />

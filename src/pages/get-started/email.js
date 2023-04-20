@@ -16,7 +16,7 @@ const Email = () => {
   const [email, setEmail] = useState(quiz ? quiz.email : '');
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { firstName, rate, requestId, tier } = quiz;
+  const { firstName, rate, requestId, tier, referrer, isPaidReferrer } = quiz;
 
   const [addQuiz, { data }] = useMutation(ADD_QUIZ);
 
@@ -88,8 +88,8 @@ const Email = () => {
           quiz: {
             firstName,
             email: validEmail,
-            // referrer,
-            // isPaidReferrer,
+            referrer,
+            isPaidReferrer,
             stage: tier,
             rate,
             status: 'QUIZ_STARTED'
