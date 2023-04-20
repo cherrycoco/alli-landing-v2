@@ -32,7 +32,7 @@ const Coverage = () => {
         };
         console.log('success', quiz);
 
-        // navigate(`/get-started/matched?${requestId}`);
+        navigate(`/get-started/matched?${requestId}`);
       }
     }
   }, [data]);
