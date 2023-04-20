@@ -26,13 +26,13 @@ const hero = {
   img: 'https://res.cloudinary.com/dhze7gimq/image/upload/v1680216735/alli/landing_v1/hero_img_b2vckz.jpg',
 };
 
-const IndexPage = () => {
+const IndexPage = ({ location }) => {
   const cta = () => {
     navigate('/get-started/location');
   };
 
   return (
-    <Layout footer={true}>
+    <Layout location={location} footer={true}>
       <HeroBasic data={hero} onClick={cta} />
       <Feature />
       <HowItWorks />

@@ -18,7 +18,7 @@ import { navigate } from 'gatsby';
 const BookingForm = ({ quiz, setQuiz }) => {
   const [showConsent, setShowConsent] = useState(false);
   const [showTerms, setShowTerms] = useState(false);
-  const { requestId, date, time, proSelected, user, rate, serviceId } = quiz;
+  const { requestId, date, time, proSelected, user, rate, serviceId, referrer, isPaidReferrer } = quiz;
   const [state, setState] = useState({
     firstName: user ? user.firstName : '',
     lastName: user ? user.lastName : '',
@@ -197,6 +197,8 @@ const BookingForm = ({ quiz, setQuiz }) => {
           email: formattedEmail,
           tel: formattedTel,
           userId: user ? user.id : '',
+          referrer,
+          isPaidReferrer,
         },
         booking: {
           userId: user ? user.id : '',
