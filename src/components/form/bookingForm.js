@@ -47,31 +47,32 @@ const BookingForm = ({ quiz, setQuiz }) => {
           user,
         });
         
-        // if (typeof window !== "undefined") {
-        //   if (window.analytics) {
-        //     window.analytics.identify(state.user.id, {
-        //       email: state.user.email,
-        //       firstName: state.user.firstName,
-        //     });
+        if (typeof window !== "undefined") {
+          if (window.analytics) {
+            window.analytics.identify(state.user.id, {
+              email: state.user.email,
+              firstName: state.user.firstName,
+            });
   
-        //     if (state.serviceId === 'therapy_consult') {
-        //       window.analytics.track("Guidance", {
-        //         userId: state.user.id,
-        //         email,
-        //         firstName,
-        //       });
-        //     } else {
-        //       window.analytics.track("Booking", {
-        //         userId: state.user.id,
-        //         proId: state.proId,
-        //         email,
-        //         firstName,
-        //       });
-        //     }
-        //   }
-        // };
+            if (state.serviceId === 'therapy_consult') {
+              window.analytics.track("Guidance", {
+                userId: state.user.id,
+                email,
+                firstName,
+              });
+            } else {
+              window.analytics.track("Booking", {
+                userId: state.user.id,
+                proId: state.proId,
+                email,
+                firstName,
+              });
+            }
+          }
+        };
         navigate(`/thank-you?booking-confirmation`);
       } else {
+        emailError(`Error - Add Booking`, { quiz, state, err: message });
         setError(message);
       }
     }
@@ -173,7 +174,7 @@ const BookingForm = ({ quiz, setQuiz }) => {
         return setError('Make sure you fill out your first name and last name.');
       }
       
-      if (!formattedTel) {
+      if (formattedTel.length !== 10) {
         return setError('Make sure your phone number is 10 digits long.');
       }
       
@@ -185,7 +186,7 @@ const BookingForm = ({ quiz, setQuiz }) => {
         return setError(`Please make sure your first and last name are different`);
       };
       
-      // setLoading(true);
+      setLoading(true);
       
       const variables = {
         request: {

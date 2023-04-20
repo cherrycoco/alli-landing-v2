@@ -29,6 +29,7 @@ function formatAndValidateEmail(input) {
 }
 
 const formatTel = (phoneNumber) => {
+  if (phoneNumber === '') return '';
   const cleaned = phoneNumber.replace(/\D+/g, '');
   return cleaned.substring(0, 10);
 };

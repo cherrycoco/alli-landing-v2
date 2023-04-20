@@ -8,42 +8,8 @@
  * @type {import('gatsby').GatsbyNode['createPages']}
  */
 
-const { ApolloClient, InMemoryCache, HttpLink } = require('@apollo/client');
-const fetch = require('cross-fetch');
-
-const { GET_PROS }= require('./src/graphql/query/prosNode');
-
-// exports.createPages = async ({ actions }) => {
-//   const { createPage } = actions;
-
-//   const client = new ApolloClient({
-//     link: new HttpLink({
-//       // uri: 'http://localhost:4000/graphql',
-//       uri: 'https://api.alli.io/graphql',
-//       fetch,
-//     }),
-//     cache: new InMemoryCache(),
-//   })
-
-//   try {
-//     const { data } = await client.query({ query: GET_PROS });
-//     console.log('data', data);
-
-//     data.pros.forEach((pro) => {
-//       createPage({
-//         path: `/therapists/${pro.fullName.split(' ').join('_')}`,
-//         component: require.resolve('./src/pages/therapists/therapist.js'),
-//         context: {
-//           data: pro,
-//         },
-//       });
-//     });
-//   } catch (error) {
-//     console.error('Error fetching pros:', error);
-//   }
-// }
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage, createRedirect } = actions;
+  const { createPage } = actions;
 
   try {
     const { data } = await graphql(`
@@ -123,14 +89,6 @@ exports.createPages = async ({ graphql, actions }) => {
           data: pro,
         },
       });
-    });
-
-      // Set up a redirect with a wildcard path
-    createRedirect({
-      fromPath: '/initial-booking-confirmation/*',
-      toPath: 'https://alli.io/initial-booking-confirmation/:splat',
-      isPermanent: true,
-      redirectInBrowser: true, // Set to false for server-side redirects only
     });
   } catch (error) {
     console.error('Error fetching pros:', error);

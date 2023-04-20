@@ -3,40 +3,38 @@ import TierCard from '../card/tierCard';
 
 const resident = {
   title: 'Resident Therapists',
-  subtitle: 'A resident therapist is a Masters graduate working to complete their clinical residency.',
+  subtitle: 'A resident therapist is completing their clinical residency with Alli.',
   range: '$35-$90',
-  handleClick: () => console.log('clicked'),
   description: [
-    'Completed a Master’s Degree in Counselling Psychology or Social Work',
+    'Completing a Master’s Degree in Counselling Psychology or Social Work',
     `Trained with the foundational knowledge and expertise to provide high quality therapy sessions`,
+    `Supervised by an Advanced Therapist`,
     `Covered under extended health insurance`,
   ]
 };
 
 const advanced = {
-  title: 'Advanced Therapists',
-  subtitle: 'A licensed therapist is fully licensed to practice independently with 1-10+ years of clinical experience.',
+  title: 'Intermediate Therapists',
+  subtitle: 'An intermediate therapist has conducted between 400 - 1600 hours of therapy sessions.',
   range: '$100-$140',
-  handleClick: () => console.log('clicked'),
   description: [
     'Completed a Master’s Degree in Counselling Psychology or Social Work',
     `Trained with the foundational knowledge and expertise to provide high quality therapy sessions`,
+    `Completed clinical residency and obtaining or obtained full professional designation to practice independently`,
     `Covered under extended health insurance`,
-    `Has completed clinical residency and obtained full professional designation to practice independently`,
-    `Have extensive additional training`,
+    `Have some additional training`,
   ]
 }
 
 const expert = {
-  title: 'Expert Therapists',
-  subtitle: 'A licensed therapist is fully licensed to practice independently with 1-10+ years of clinical experience.',
-  range: '$150-$190',
-  handleClick: () => console.log('clicked'),
+  title: 'Advanced Therapists',
+  subtitle: 'An advanced therapist is has conducted 1600+ hours of therapy sessions.',
+  range: '$150-$200',
   description: [
     'Completed a Master’s Degree in Counselling Psychology or Social Work',
     `Trained with the foundational knowledge and expertise to provide high quality therapy sessions`,
+    `Completed clinical residency and obtained full professional designation to practice independently`,
     `Covered under extended health insurance`,
-    `Has completed clinical residency and obtained full professional designation to practice independently`,
     `Have extensive additional training`,
   ]
 }
@@ -44,7 +42,7 @@ const expert = {
 const Tier = () => {
   return (
     <div className="mt-12 flow-root">
-      <div className="isolate -mt-16 grid max-w-sm grid-cols-1 gap-y-16 divide-y divide-gray-100 mx-auto sm:-mx-8 sm:mt-0 sm:max-w-none sm:grid-cols-3 sm:divide-x sm:divide-y-0 xl:-mx-4">
+      <div className="isolate -mt-16 grid max-w-sm grid-cols-1 gap-y-16 divide-y divide-gray-100 mx-auto md:-mx-8 sm:mt-0 md:max-w-none md:grid-cols-3 md:divide-x md:divide-y-0 xl:-mx-4">
         <TierCard card={resident} />
         <TierCard card={advanced} />
         <TierCard card={expert} />

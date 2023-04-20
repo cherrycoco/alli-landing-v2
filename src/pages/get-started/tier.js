@@ -13,13 +13,13 @@ const selectData = [
     key: 'resident',
   },
   {
-    subTitle: 'Advanced Therapist',
+    subTitle: 'Intermediate Therapist',
     title: 'Session rate: $100-$140',
     key: 'qualifying',
   },
   {
-    subTitle: 'Expert Therapist',
-    title: 'Session rate: $150-$180',
+    subTitle: 'Advanced Therapist',
+    title: 'Session rate: $150-$200',
     key: 'licensed',
   },
 ]

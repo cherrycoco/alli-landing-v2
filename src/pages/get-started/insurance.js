@@ -7,6 +7,7 @@ import { navigate } from "gatsby";
 import { therapistGoals, trueOrFalse, goals } from "../../data/quiz";
 import ADD_QUIZ from "../../graphql/mutation/addQuiz";
 import { useMutation } from "@apollo/client";
+import Loading from "../../components/loading/loading";
 
 const Insurance = () => {
   const { quiz, setQuiz } = useQuiz() || {};
@@ -31,7 +32,9 @@ const Insurance = () => {
         };
         console.log('success', quiz);
 
-        // navigate(`/get-started/matched?${requestId}`);
+        navigate(`/get-started/matched?${requestId}`);
+      } else {
+        console.log('error', data.addQuiz.message);
       }
     }
   }, [data]);
@@ -96,6 +99,7 @@ const Insurance = () => {
 
   return (
     <LayoutQuiz data={infoData} footer>
+      {loading && <Loading />}
       <div className='flex mt-8 flex-wrap'>
         {trueOrFalse.map(item => 
           <SimpleSelect 

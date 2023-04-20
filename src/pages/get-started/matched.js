@@ -15,7 +15,7 @@ const Matched = ({ location }) => {
 
   useEffect(() => {
     if (data && data.request) { 
-      console.log(data.request);
+      console.log('req', data.request);
       const { id, matches, user, stage } = data.request;
       
       setQuiz({
@@ -48,7 +48,7 @@ const Matched = ({ location }) => {
         {pros.length > 0 && pros.map(id => <TherapistCardDrawer id={id}/>)}
       </div>
       <div className='w-4/5 m-auto pb-48'>
-        <Consult />
+        <Consult quiz={quiz} setQuiz={setQuiz} />
       </div>
     </LayoutQuiz>
   );

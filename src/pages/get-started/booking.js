@@ -10,7 +10,7 @@ import moment from 'moment';
 
 const Booking = ({ location }) => {
   const { quiz, setQuiz } = useQuiz() || initialQuizContext;
-  const { proSelected, rate } = quiz;
+  const { proSelected, rate, serviceId } = quiz;
   const date = moment(quiz.date).format('dddd, MMMM Do');
   const time = timeMap[quiz.time];
 
@@ -19,17 +19,25 @@ const Booking = ({ location }) => {
   return (
     <Layout>
       <div className='flex flex-wrap gap-8 justify-center'>
-        {proSelected ? (
-        <div className='my-16 mx-auto max-w-xl'>
-          <h1 className='text-3xl font-semibold text-gray-800 mb-6'>{`Your therapy journey is about to begin!`}</h1>
-          <p className='text-gray-600 mb-4 text-base'>Your initial assessment session will be on<b>{` ${date} @ ${time} `}</b> for 50 minutes with <b>{` ${proSelected.fullName} `}</b> at your selected rate of <b>{` $${rate}`}</b>.</p>
-          <p className='text-gray-600 text-base italic'>Please fill out the details below to secure your spot:</p>
-          <BookingForm quiz={quiz} setQuiz={setQuiz} />
-        </div>) :
-        (<div className='my-16 mx-auto'>
-          <h1 className='text-3xl font-semibold text-gray-800 mb-6'>Oops, we are not sure who you are booking with...</h1>
-          <Button className="mx-auto block" onClick={onClick} >Get Matched With A Therapist<span aria-hidden="true">&rarr;</span></Button>
-        </div>)
+        {serviceId !== 'therapy_consult' ?
+          proSelected ? 
+          (<div className='my-16 mx-auto max-w-xl'>
+            <h1 className='text-3xl font-semibold text-gray-800 mb-6'>{`Your therapy journey is about to begin!`}</h1>
+            <p className='text-gray-600 mb-4 text-base'>Your initial assessment session will be on<b>{` ${date} @ ${time} `}</b> for 50 minutes with <b>{` ${proSelected.fullName} `}</b> at your selected rate of <b>{` $${rate}`}</b>.</p>
+            <p className='text-gray-600 text-base italic'>Please fill out the details below to secure your spot:</p>
+            <BookingForm quiz={quiz} setQuiz={setQuiz} />
+          </div>) :
+          (<div className='my-16 mx-auto'>
+            <h1 className='text-3xl font-semibold text-gray-800 mb-6'>Oops, we are not sure who you are booking with...</h1>
+            <Button className="mx-auto block" onClick={onClick} >Get Matched With A Therapist<span aria-hidden="true">&rarr;</span></Button>
+          </div>) :
+          <div className='my-16 mx-auto max-w-xl'>
+            <h1 className='text-3xl font-semibold text-gray-800 mb-6'>Let's finalize your guidance session with an Alli Guidance Counsellor:</h1>
+            <p className='text-gray-600 mb-4 text-base'>Your guidance session will be on<b>{` ${date} @ ${time} `}</b> for 30 minutes.</p>
+            <p className='text-gray-600 text-base italic'>Please fill out the details below to secure your spot:</p>
+            <BookingForm quiz={quiz} setQuiz={setQuiz} />
+          </div>
+
         }
       </div>
     </Layout>

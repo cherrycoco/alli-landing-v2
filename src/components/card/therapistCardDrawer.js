@@ -14,9 +14,9 @@ const TherapistCardDrawer = ({ id }) => {
       let tempType = 'Resident Therapist';
   
       if (role === 'qualifying') {
-        tempType = 'Advanced Therapist';
+        tempType = 'Intermediate Therapist';
       } else if (role === 'licensed' || role === 'supervisor') {
-        tempType = 'Expert Therapist';
+        tempType = 'Advanced Therapist';
       }
       setType(capitalize(tempType));
     }

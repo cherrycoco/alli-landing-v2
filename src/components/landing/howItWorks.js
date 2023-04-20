@@ -19,7 +19,7 @@ const HowItWorks = () => {
                 You choose your session rate
               </dt>
               <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
-                <p className="flex-auto">Whether you work with our Residents, Advanced, or Expert therapists, you get to choose a session rate that suits your budget within the given therapist's given range.</p>
+                <p className="flex-auto">Whether you work with our Residents, Advanced, or Advanced Therapists, you get to choose a session rate that suits your budget within the given therapist's given range.</p>
                 <p className="mt-6">
                   <a href="#tiers" className="text-sm font-semibold leading-6 text-primary-600">See therapist ranges <span aria-hidden="true">→</span></a>
                 </p>

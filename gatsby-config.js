@@ -53,7 +53,7 @@ module.exports = {
         fieldName: 'alliApi',
         url: 'https://api.alli.io/graphql',
         // url: 'http://localhost:4000/graphql',
-        refetchInterval: 120, // Refetch data every 60 seconds (optional)
+        // refetchInterval: 120, // Refetch data every 60 seconds (optional)
       },
     },
     {

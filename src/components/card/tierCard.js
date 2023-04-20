@@ -3,14 +3,14 @@ import React from 'react';
 const TierCard = ({ card }) => {
   const { title, subtitle, range, description } = card;
   return (
-    <div className="pt-16 sm:px-8 sm:pt-0 xl:px-14">
+    <div className="pt-16 md:px-8 md:pt-0 xl:px-14">
       <h3 id="tier-basic" className="text-base font-semibold leading-7 text-gray-900">{title}</h3>
-      <p className="mt-6 flex items-baseline gap-x-1">
-        <span className="text-5xl font-bold tracking-tight text-gray-900">{range}</span>
+      <p className="mt-6 flex flex-wrap items-baseline gap-x-1">
+        <span className="text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">{range}</span>
         <span className="text-sm font-semibold leading-6 text-gray-600">/session</span>
       </p>
       <p className="mt-3 text-sm leading-6 text-gray-500">*Sessions are 50 minutes</p>
-      <a href="/get-started" aria-describedby="tier-basic" className="mt-10 block no-underline rounded-md bg-cyan-800 px-3 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-700">{`Find Your ${title}`}</a>
+      <a href="/get-started/location" aria-describedby="tier-basic" className="mt-10 block no-underline rounded-md bg-cyan-800 px-3 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-700">{`Find Your ${title}`}</a>
       <p className="mt-10 text-sm font-semibold leading-6 text-gray-900">{subtitle}</p>
       <ul role="list" className="mt-6 space-y-3 text-sm leading-6 text-gray-600">
         {description.map((item, index) => (

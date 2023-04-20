@@ -32,6 +32,7 @@ export const initialQuizState = {
     // `m3OQ7hjApge8WLXQPGKFP8xBuZU2`, // Myles
   ],
   proSelected: {},
+  serviceId: '',
 };
 
 export const initialProState = {

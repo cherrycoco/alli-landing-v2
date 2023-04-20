@@ -1,5 +1,7 @@
 import React from 'react'
 import { CheckCircleIcon } from '@heroicons/react/20/solid'
+import { navigate } from 'gatsby'
+import Button from '../button/button'
 
 const benefits = [
   'How the whole process works',
@@ -7,7 +9,12 @@ const benefits = [
   'Answer any questions you may have',
 ]
 
-const Consult = () => {
+const Consult = ({ quiz, setQuiz }) => {
+  const onClick = () => {
+    setQuiz({...quiz, serviceId: 'therapy_consult'});
+    navigate('/get-started/schedule');
+  }
+
   return (
     <div className="mt-16 mx-auto max-w-7xl bg-primary-100 rounded-lg px-6">
       <div className="mx-auto flex flex-col max-w-2xl bg-white/5 px-6 py-12">
@@ -27,10 +34,9 @@ const Consult = () => {
             </li>
           ))}
         </ul>
+
         <div className="mt-10 flex">
-          <a href="#" className="font-semibold leading-6 text-cyan-700">
-            Book a free consult call <span aria-hidden="true">&rarr;</span>
-          </a>
+          <Button onClick={onClick}>Book a free consult call <span aria-hidden="true">&rarr;</span></Button>
         </div>
       </div>
     </div>
