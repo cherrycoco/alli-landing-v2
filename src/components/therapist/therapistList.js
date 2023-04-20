@@ -3,7 +3,7 @@ import TherapistCard from '../card/therapistCard';
 
 const TherapistList = ({ pros, modality, specialization, tier, available }) => {
   const filteredPros = useMemo(() => {
-    return pros.filter((pro) => {
+    return pros && pros.filter((pro) => {
       // If modality filter is selected, check if the pro has the selected modality
       if (modality && !pro.modalities.some((temp) => temp.id === modality.id)) {
         return false;
@@ -31,7 +31,7 @@ const TherapistList = ({ pros, modality, specialization, tier, available }) => {
 
   return (
     <div className="mt-12 flex flex-wrap justify-center">
-      {filteredPros.length > 0 ? (
+      {filteredPros && filteredPros.length > 0 ? (
         filteredPros.map((pro) => <TherapistCard key={pro.id} data={pro} />)
       ) : (
         <div className="text-center text-gray-600">

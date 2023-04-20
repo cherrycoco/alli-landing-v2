@@ -43,7 +43,7 @@ const { GET_PROS }= require('./src/graphql/query/prosNode');
 //   }
 // }
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
 
   try {
     const { data } = await graphql(`
@@ -105,9 +105,6 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     `);
 
-
-    console.log('data', data);
-
     createPage({
       path: `/therapists`,
       component: require.resolve('./src/pages/therapists/all.js'),
@@ -126,6 +123,14 @@ exports.createPages = async ({ graphql, actions }) => {
           data: pro,
         },
       });
+    });
+
+      // Set up a redirect with a wildcard path
+    createRedirect({
+      fromPath: '/initial-booking-confirmation/*',
+      toPath: 'https://alli.io/initial-booking-confirmation/:splat',
+      isPermanent: true,
+      redirectInBrowser: true, // Set to false for server-side redirects only
     });
   } catch (error) {
     console.error('Error fetching pros:', error);
