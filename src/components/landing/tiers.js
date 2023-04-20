@@ -9,7 +9,7 @@ const Tiers = () => {
           <h2 className="text-base font-semibold leading-7 text-cyan-800">Therapist Tiers</h2>
           <p className="mt-2 mx-auto text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">We're doing things a little differently here at Alli</p>
         </div>
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600 sm:text-center">Tired of asking about sliding scales or negotiating hourly rates? We hear ya friend.</p>
+        {/* <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600 sm:text-center">Tired of asking about sliding scales or negotiating hourly rates? We hear ya friend.</p> */}
         <Tier />
       </div>
     </div>

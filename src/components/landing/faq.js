@@ -90,28 +90,41 @@ const faqs = [
     ]
   },
   {
-    question: 'What is a resident therapist?',
+    question: 'Who are resident therapists?',
     answer: [
       {
         type: 'p',
-        value: `A resident therapist is a therapist who is trained with the foundational knowledge and expertise to provide high quality therapy sessions. Resident therapists have either recently gained their Master's Degree in Counselling Psychology or are working towards their Master's of Social Work from an accredited university`
+        value: `Our resident therapists are currently completing their clinical residency to earn their full professional designation to practice independently. Our resident therapists are nearing completion of their their Master's Degree in Counselling Psychology or Master's of Social Work from an accredited university.`
       },
       {
         type: 'p',
-        value: `They are currently completing their clinical residency to gain their full professional designation to practice independently. With Alli, they work under the supervision of a licensed therapist who has over 5 years experience in the field.  All sessions are covered under extended insurance.`
+        value: `They are trained with the foundational knowledge and expertise to provide exceptional therapy sessions, and work under the supervision of an Advanced Therapist with over 5 years of experience in the field. Plus, all of our resident therapists are covered under extended health insurance, so you can rest assured that you're receiving quality care at an affordable cost.`
       },
     ],
   },
   {
-    question: 'What is a licensed therapist?',
+    question: 'Who are intermediate therapists?',
     answer: [
       {
         type: 'p',
-        value: `A licensed therapist is a therapist who has completed their qualifications and gained the expertise to provide high quality therapy sessions. They hold a Master’s Degree in Counselling Psychology or Master’s of Social Work from an accredited University and have the professional designation to practice independently.`
+        value: `Our Intermediate Therapists have completed their Master's Degree in Counselling Psychology or Social Work, conducted 400-1600 hours of therapy, and are in the process of obtaining or have already obtained their full professional designation. They have been mentored to become the highest level of therapists by our advanced therapists, the best therapists in the industry. And most have taken extensive additional training.`
       },
       {
         type: 'p',
-        value: 'All sessions are covered under extended insurance.'
+        value: `They bring a wealth of knowledge and specialized expertise to provide high quality therapy sessions. Plus, they're covered under extended health insurance.`
+      },
+    ],
+  },
+  {
+    question: 'Who are advanced therapist?',
+    answer: [
+      {
+        type: 'p',
+        value: `Our Advanced Therapists are industry experts. They have completed a Master's Degree in Counselling Psychology or Social Work and conducted 1600+ hours of therapy. They bring specialized knowledge and extensive training to provide exceptional therapy sessions, and have obtained their full professional designation to practice independently.`
+      },
+      {
+        type: 'p',
+        value: 'In addition to their extensive training, our Advanced Therapists have undergone specialized additional training in their respective fields, making them uniquely equipped to handle complex issues. Plus, all of our Advanced Therapists are covered under extended health insurance..'
       }
     ],
   },
@@ -149,7 +162,7 @@ const FAQ = () => {
                         </span>
                       </Disclosure.Button>
                     </dt>
-                    <Disclosure.Panel as="dd" className="mt-2 pr-12">
+                    <Disclosure.Panel as="dd" className="mt-2 pr-12 space-y-6">
                     {open && faq.answer.map((item, idx) => {
                       if(item.type === 'p') {
                         return <p className="text-base leading-7 text-gray-600" key={idx}>{item.value}</p>

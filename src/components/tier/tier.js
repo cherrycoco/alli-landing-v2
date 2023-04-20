@@ -22,7 +22,6 @@ const advanced = {
     `Trained with the foundational knowledge and expertise to provide high quality therapy sessions`,
     `Completed clinical residency and obtaining or obtained full professional designation to practice independently`,
     `Covered under extended health insurance`,
-    `Have some additional training`,
   ]
 }
 
@@ -35,7 +34,6 @@ const expert = {
     `Trained with the foundational knowledge and expertise to provide high quality therapy sessions`,
     `Completed clinical residency and obtained full professional designation to practice independently`,
     `Covered under extended health insurance`,
-    `Have extensive additional training`,
   ]
 }
 

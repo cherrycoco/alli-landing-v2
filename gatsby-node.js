@@ -89,7 +89,7 @@ exports.createPages = async ({ graphql, actions }) => {
           data: pro,
         },
       });
-    });
+    })
   } catch (error) {
     console.error('Error fetching pros:', error);
   }

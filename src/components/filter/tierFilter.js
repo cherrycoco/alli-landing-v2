@@ -10,8 +10,8 @@ function classNames(...classes) {
 
 const tiers = [
   { id: 'resident', name: 'Resident ($35-90)' },
-  { id: 'qualifying', name: 'Advanced ($100-140)' },
-  { id: 'licensed', name: 'Expert ($150-200)' },
+  { id: 'qualifying', name: 'Intermediate ($100-140)' },
+  { id: 'licensed', name: 'Advanced ($150-200)' },
 ];
 
 const TierFilter = ({ selected, onChange }) => {
