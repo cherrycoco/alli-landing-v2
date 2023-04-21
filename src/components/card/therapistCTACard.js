@@ -26,8 +26,8 @@ const TherapistCTACard = ({ data }) => {
   const handleClick = () => {
     const newQuiz = {...quiz, proSelected: data};
     if (isAccepting) {
-      const rateChecked = rateCheck(role, rate);
       newQuiz.tier = role === 'supervisor' ? 'licensed' : role;
+      const rateChecked = rateCheck(newQuiz.tier, rate);
       setQuiz(newQuiz);
       if (rateChecked) {
         navigate('/get-started/schedule');
@@ -40,8 +40,10 @@ const TherapistCTACard = ({ data }) => {
   }
 
   const rateCheck = (proTier, rateSelected) => {
-    if (rateSelected >= setRates[proTier].min && rateSelected <= setRates[proTier].max) {
-      return true;
+    if (rateSelected) {
+      if (rateSelected >= setRates[proTier].min && rateSelected <= setRates[proTier].max) {
+        return true;
+      }
     }
 
     return false;
