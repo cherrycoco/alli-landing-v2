@@ -28,7 +28,7 @@ export const initialQuizState = {
   pros: [
     // 'MtAdLaXGEIdxjqUR88orPkrDC6b2', // Samantha
     // 'MtAdLaXGEIdxjqUR88orPkrDC6b2', // Samantha
-    `BxxemuISXcWHl7nd8UdmA9Jp0iE3`, // Lauren
+    // `BxxemuISXcWHl7nd8UdmA9Jp0iE3`, // Lauren
     // `m3OQ7hjApge8WLXQPGKFP8xBuZU2`, // Myles
   ],
   proSelected: {},

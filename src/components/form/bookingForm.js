@@ -49,21 +49,21 @@ const BookingForm = ({ quiz, setQuiz }) => {
         
         if (typeof window !== "undefined") {
           if (window.analytics) {
-            window.analytics.identify(state.user.id, {
-              email: state.user.email,
-              firstName: state.user.firstName,
+            window.analytics.identify(user.id, {
+              email,
+              firstName,
             });
   
-            if (state.serviceId === 'therapy_consult') {
+            if (serviceId === 'therapy_consult') {
               window.analytics.track("Guidance", {
-                userId: state.user.id,
+                userId: user.id,
                 email,
                 firstName,
               });
             } else {
               window.analytics.track("Booking", {
-                userId: state.user.id,
-                proId: state.proId,
+                userId: user.id,
+                proId: proSelected.id,
                 email,
                 firstName,
               });

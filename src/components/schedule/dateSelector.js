@@ -28,6 +28,7 @@ const DateSelector = ({ dateIdxSelected, handleDateIdxSelect, schedule }) => {
         type="button"
         className={display === 0 ? buttonInactive : buttonActive}
         onClick={handleLeft}
+        disabled={display === 0}
       >
         <ChevronLeftIcon className="h-10 w-10 font-bold" aria-hidden="true" />
       </button>
@@ -36,6 +37,7 @@ const DateSelector = ({ dateIdxSelected, handleDateIdxSelect, schedule }) => {
         type="button"
         className={display + 3 >= schedule.length ? buttonInactive : buttonActive}
         onClick={handleRight}
+        disabled={display + 3 >= schedule.length}
       >
         <ChevronRightIcon className="h-10 w-10 font-bold" aria-hidden="true" />
       </button>
