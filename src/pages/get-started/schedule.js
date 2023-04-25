@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Layout from "../../components/layout/layout";
 import useQuiz from "../../context/useQuiz";
 import { initialQuizContext } from "../../context/initialState";
@@ -12,7 +12,17 @@ const SchedulePage = ({ location }) => {
   const { quiz, setQuiz } = useQuiz() || initialQuizContext;
   const { proSelected, serviceId } = quiz;
   const { id } = proSelected ? proSelected : {};
-  console.log(quiz);
+  const query = (location && location.search) ? location.search.substring(1) : null;
+  console.log(query);
+
+  useEffect(() => {
+    if (query) {
+      setQuiz({
+        ...quiz,
+        serviceId: query
+      });
+    }
+  }, [query]);
 
   return (
     <Layout>

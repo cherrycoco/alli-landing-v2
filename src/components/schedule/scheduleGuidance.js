@@ -11,7 +11,6 @@ const ScheduleGuidance = ({ quiz, setQuiz }) => {
   const [dateIdxSelected, setDateIdxSelected] = useState(0);
   const { data, loading, error } = useQuery(GET_AVAILABILITY, { variables: { proId: 'xuWDXJNvhuXOa0fcEgIQpaaiSuy1',  duration: 2 }});
 
-
   const handleTimeIdxSelect = (idx) => {
     const newQuiz = {
       ...quiz,
