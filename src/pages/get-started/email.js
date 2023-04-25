@@ -58,7 +58,7 @@ const Email = () => {
           }
         };
       } else {
-        setError(message);
+        setError('Sorry, there seems to be a problem creating your request. Please refresh the page and re-start the quiz!');
         emailError(`Error - Email`, { quiz, err: message });
       }
     }
@@ -105,7 +105,7 @@ const Email = () => {
       }
     } catch (err) {
       setLoading(false);
-      setError(err.msg);
+      setError('Sorry, there seems to be a problem creating your request. Please refresh the page and re-start the quiz!');
       emailError(`Error - Email`, { quiz, err });
       console.log(err);
     }

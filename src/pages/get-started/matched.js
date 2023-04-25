@@ -10,7 +10,10 @@ import TherapistCardDrawer from "../../components/card/therapistCardDrawer";
 const Matched = ({ location }) => {
   const { quiz, setQuiz } = useQuiz() || {};
   const requestId = location.search && location.search.slice(1);
-  const { data, loading, error } = useQuery(GET_REQUEST, { variables: { id: requestId }});
+  const { data, loading, error } = useQuery(GET_REQUEST, { 
+    variables: { id: requestId },
+    fetchPolicy: 'network-only'
+  });
   const { pros, user, rate, tier } = quiz;
 
   useEffect(() => {
@@ -40,10 +43,11 @@ const Matched = ({ location }) => {
     description: `Your selected session rate is $${rate} - you can change your session rate anytime you need. Choose a therapist who resonates with you the most to schedule your first session:`,
   };
 
-  if (loading) return<Loading />;
+  // if (loading) return <Loading />;
 
   return (
     <LayoutQuiz data={infoData}>
+      {loading && <Loading />}
       <div className='flex mt-8 flex-wrap gap-8 justify-center'>
         {pros.length > 0 && pros.map(id => <TherapistCardDrawer id={id}/>)}
       </div>

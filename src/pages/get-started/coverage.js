@@ -1,18 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import LayoutQuiz from "../../components/layout/layoutQuiz";
 import SimpleSelect from "../../components/select/simpleSelect";
 import useQuiz from "../../context/useQuiz";
-import { initialQuizContext } from "../../context/initialState";
 import { navigate } from "gatsby";
 import { coverage, goals, therapistGoals } from "../../data/quiz";
 import ADD_QUIZ from "../../graphql/mutation/addQuiz";
 import { useMutation } from "@apollo/client";
 import Loading from "../../components/loading/loading";
+import Error from "../../components/error/error";
 
 const Coverage = () => {
   const { quiz, setQuiz } = useQuiz() || {};
-  const [addQuiz, { data, called, loading } ] = useMutation(ADD_QUIZ);
   const { isInsurance, requestId, type, rate, user, tier } = quiz;
+  const [addQuiz, { data, called, loading } ] = useMutation(ADD_QUIZ);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (!requestId) {
@@ -30,9 +31,11 @@ const Coverage = () => {
             });
           }
         };
-        console.log('success', quiz);
 
         navigate(`/get-started/matched?${requestId}`);
+      } else {
+        console.log('error', data.addQuiz.message);
+        setError('Sorry, there seems to be a problem creating your request. Please refresh the page and re-start the quiz!');
       }
     }
   }, [data]);
@@ -120,6 +123,7 @@ const Coverage = () => {
         />
         ))} 
       </div>
+      {error && <Error error={error} />}
     </LayoutQuiz>
   );
 }
