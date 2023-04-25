@@ -79,7 +79,7 @@ exports.createPages = async ({ graphql, actions }) => {
         modalities: modality.data.alliApi.modalities,
         specializations: specialization.data.alliApi.specializations,
       },
-    });
+    })
 
     data.alliApi.pros.forEach((pro) => {
       createPage({
