@@ -1,11 +1,11 @@
 import React from 'react';
-import Redirect from '../components/redirect/redirect';
+import ExternalRedirect from '../../components/redirect/redirect';
 
 const RedirectPage = ({ location }) => {
   const externalUrl = 'https://app.alli.io/join-us/practicum-program';
 
   return (
-    <Redirect
+    <ExternalRedirect
       to={externalUrl}
       query={location.search}
     />
