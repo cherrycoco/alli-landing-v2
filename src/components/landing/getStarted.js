@@ -9,7 +9,7 @@ const GetStarted = ({ onClick }) => {
       <div className="lg:pr-8 lg:pt-4">
         <div className="lg:max-w-lg">
           <h2 className="text-base font-semibold leading-7 text-cyan-800">how Alli works</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Geting started is easy!</p>
+          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Getting started is easy!</p>
           <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
             <div className="relative pl-9">
               <dt className="inline font-semibold text-gray-900">
