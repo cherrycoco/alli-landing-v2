@@ -164,6 +164,10 @@ const BookingForm = ({ quiz, setQuiz }) => {
       if(!crisis) {
         return setError(`Please read and accept the crisis consent.`);
       };
+
+      if (tel.charAt(0) === "1") {
+        throw new Error("Make sure your phone number is 10 digits long and does not start with 1.");
+      }
       
       const formattedTel = formatTel(tel);
       const formattedEmail = formatAndValidateEmail(email);
