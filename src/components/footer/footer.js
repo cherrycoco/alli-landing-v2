@@ -54,14 +54,14 @@ const Footer = () => {
                 </li> */}
               </ul>
             </div>
-            {/* <div>
-              <h3 className="text-sm font-semibold leading-6 text-white">Legal</h3>
+            <div>
+              <h3 className="text-sm font-semibold leading-6 text-white">Join Us</h3>
               <ul role="list" className="mt-6 space-y-4">
                 <li>
-                  <a href="#" className="text-sm leading-6 text-gray-300 hover:text-white">Terms</a>
+                  <a href="https://app.alli.io/join-us/practicum-program/" className="text-sm leading-6 text-gray-300 hover:text-white">Practicum Program</a>
                 </li>
               </ul>
-            </div> */}
+            </div>
           </div>
         </div>
         <div className="mt-8 border-t border-white/10 pt-8">
