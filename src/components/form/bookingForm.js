@@ -112,7 +112,7 @@ const BookingForm = ({ quiz, setQuiz }) => {
     type: 'tel',
     name: 'tel',
     label: `Phone Number`,
-    helperText: `Only input the digits, no spaces or dashes e.g. 1234567890`,
+    helperText: `Only input the 10 digits, no spaces or dashes e.g. 1234567890`,
     value: tel,
   };
 
@@ -165,8 +165,8 @@ const BookingForm = ({ quiz, setQuiz }) => {
         return setError(`Please read and accept the crisis consent.`);
       };
 
-      if (tel.charAt(0) === "1") {
-        throw new Error("Make sure your phone number is 10 digits long and does not start with 1.");
+      if (tel.length !== 10 || tel.charAt(0) === "1") {
+        throw new Error("Make sure your phone number is ONLY 10 digits long and does not start with 1.");
       }
       
       const formattedTel = formatTel(tel);
@@ -178,8 +178,8 @@ const BookingForm = ({ quiz, setQuiz }) => {
         return setError('Make sure you fill out your first name and last name.');
       }
       
-      if (formattedTel.length !== 10) {
-        return setError('Make sure your phone number is 10 digits long.');
+      if (formattedTel.length !== 10 || tel.charAt(0) === "1") {
+        return setError('Make sure your phone number is 10 digits long and does not start with 1.');
       }
       
       if (!formattedEmail) {
