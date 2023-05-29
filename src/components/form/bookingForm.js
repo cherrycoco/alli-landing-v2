@@ -27,8 +27,9 @@ const BookingForm = ({ quiz, setQuiz }) => {
     crisis: false,
     consent: false,
     terms: false,
+    cancellation: false,
   });
-  const { firstName, lastName, tel, email, crisis, consent, terms } = state;
+  const { firstName, lastName, tel, email, crisis, consent, terms, cancellation } = state;
   const [addBookingUser, { data }] = useMutation(ADD_BOOKING_USER);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
@@ -149,9 +150,20 @@ const BookingForm = ({ quiz, setQuiz }) => {
     onChange: onCheckboxChange,
   }
 
+  const cancellationInput = {
+    label: `I understand that I will be charged the full session rate if I cancel within 24 hours of my scheduled appointment or if I miss it all together. (*Note: This does not apply to your very first session with Alli. You may cancel your first session at any time without incurring fees).`,
+    checked: cancellation,
+    name: 'cancellation',
+    onChange: onCheckboxChange,
+  }
+
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
+
+      if(!cancellation) {
+        return setError('Please read and accept our cancellation terms.');
+      };
       
       if(!consent) {
         return setError('Please read and accept the consent to therapy.');
@@ -240,6 +252,7 @@ const BookingForm = ({ quiz, setQuiz }) => {
       </BasicModal>
       <CheckboxConsent data={therapyConsentInput} />
       <CheckboxConsent data={termsInput} />
+      <CheckboxSimple data={cancellationInput}/>
       <CheckboxSimple data={crisisInput}/>
       {error && <Error error={error} />}
       <Button onClick={handleSubmit} className='w-full'>Submit</Button>
