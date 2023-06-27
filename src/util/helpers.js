@@ -1,3 +1,6 @@
+const { DateTime } = require('luxon');
+const { timeMap24 } = require('./timeMap');
+
 const capitalize = (str) => {
   if (typeof str !== 'string') return '';
   return str.charAt(0).toUpperCase() + str.slice(1);
@@ -117,7 +120,34 @@ const utmParser = (utm) => {
   return result;
 };
 
-export default utmParser;
+const isWithin24Hours = (date, timeIdx) => {
+  // get time now
+  const now = DateTime.local().setZone('America/Toronto');
+  console.log('now', now);
+
+  // get booking time
+  const dateArr = date.split('-');
+  const time = timeMap24[timeIdx];
+  const timeArr = time.split(':');
+  console.log(dateArr, timeArr );
+
+  const bookingDate = DateTime.fromObject({ 
+    year: Number(dateArr[0]), 
+    month: Number(dateArr[1]), 
+    day: Number(dateArr[2]), 
+    hour: Number(timeArr[0]),
+    minute: Number(timeArr[1]),
+  }, { zone: 'America/Toronto' });
+
+  console.log('bookingDate', bookingDate);
+  // get time difference
+  const diff = bookingDate.diff(now, 'hours');
+  console.log(diff);
+  if (diff.get('hours') < 24) {
+    return true;
+  }
+  return false;
+};
 
 export { 
   capitalize,
@@ -130,4 +160,5 @@ export {
   validateImageFile,
   addMinutesToTime,
   utmParser,
+  isWithin24Hours,
 };

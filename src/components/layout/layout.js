@@ -4,7 +4,7 @@ import Footer from "../footer/footer"
 import Header from "../header/header"
 import useQuiz from "../../context/useQuiz"
 import { initialQuizContext } from "../../context/initialState"
-import utmParser from "../../util/helpers"
+import { utmParser } from "../../util/helpers"
 
 const Layout = ({ children, footer, location }) => {
   const { quiz, setQuiz } = useQuiz() || initialQuizContext;
