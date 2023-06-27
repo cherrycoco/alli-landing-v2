@@ -62,7 +62,7 @@ const CancelBooking = ({ location }) => {
         (is24Hours ? <p className='text-gray-600 mb-4 text-base'>{`Heads up! With less than 24 hours to your session, cancelling now means you'll be charged your selected session rate of $${rate.rate}.`}</p> :
         <p className='text-gray-600 mb-4 text-base'>No stress! With more than 24 hours to go, you can still cancel your session free of charge.</p>) : <p className='text-gray-600 mb-4 text-base'>Don't worry, we know things can come up unexpectedly. Feel free to cancel your session at no cost.</p>
         }
-        <p className='text-gray-600 mb-2 text-base'>{`Before you cancel, could you drop a line for your therapist? Let ${pro.firstName} know how we can best support you at this time.`}</p>
+        <p className='text-gray-600 mb-2 text-base'>{`Before you cancel, could you drop a line for your therapist? Let ${pro.firstName} know if you're looking to reschedule, take a short break, or if there's anything else they should be aware of.`}</p>
         <textarea value={note} onChange={e => setNote(e.target.value)} rows={6} className='my-4 w-full p-2 border-gray-300 rounded-md' placeholder={`Write your note to ${pro.firstName} here...`}></textarea>
         {errorMsg && <Error message={errorMsg} />}
         <Button onClick={handleCancel}>Proceed with Cancellation</Button>
