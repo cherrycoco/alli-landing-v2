@@ -2,11 +2,11 @@ import React from 'react';
 
 const logos = [
   { name: 'University of British Columbia', logo: 'https://res.cloudinary.com/dhze7gimq/image/upload/v1680233905/alli/landing_v1/6_oycswo.png' },
-  { name: 'Ottawa University', logo: 'https://res.cloudinary.com/dhze7gimq/image/upload/v1680233905/alli/landing_v1/4_l2raha.png' },
+  { name: 'Ottawa University', logo: 'https://res.cloudinary.com/dhze7gimq/image/upload/v1688118474/alli/landing_v1/gi8pokba8vqwurrrq8aa.png' },
   { name: 'University of Toronto', logo: 'https://res.cloudinary.com/dhze7gimq/image/upload/v1680233905/alli/landing_v1/2_imnk7s.png' },
   { name: 'Wilfred Laurier University', logo: 'https://res.cloudinary.com/dhze7gimq/image/upload/v1680233905/alli/landing_v1/5_qjfrb1.png' },
   { name: 'Yorkville', logo: 'https://res.cloudinary.com/dhze7gimq/image/upload/v1680233905/alli/landing_v1/1_s8m25m.png' },
-  { name: 'Toronto Life', logo: 'https://res.cloudinary.com/dhze7gimq/image/upload/v1680233905/alli/landing_v1/3_bxaa1s.png' },
+  { name: 'Calgary University', logo: 'https://res.cloudinary.com/dhze7gimq/image/upload/v1688118223/alli/landing_v1/o58mlvj7nmsik3ci6smb.png' },
 ];
 
 const Feature = () => {
