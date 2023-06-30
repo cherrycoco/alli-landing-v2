@@ -20,6 +20,7 @@ const Matched = ({ location }) => {
     if (data && data.request) { 
       console.log('req', data.request);
       const { id, matches, user, stage } = data.request;
+      const pros = matches ? matches.split('|') : [];
       
       setQuiz({
         ...quiz,
@@ -32,7 +33,7 @@ const Matched = ({ location }) => {
           tel: user.tel,
         },
         rate: user.rate.rate,
-        pros: matches.split('|'),
+        pros,
         tier: stage,
       });
     }
@@ -42,11 +43,17 @@ const Matched = ({ location }) => {
     title: `${user.firstName}, here are your matched ${tier} therapists.`,
     description: `Your selected session rate is $${rate} - you can change your session rate anytime you need. Choose a therapist who resonates with you the most to schedule your first session:`,
   };
+  
+  const noMatches = {
+    title: `Hi ${user.firstName}, we're still on the hunt for your perfect match!`,
+    description: `Currently, we haven't found a perfect match for you within our ${tier} therapists. No worries, though! We would love to invite you for a free consultation call. This gives us a chance to understand you better and find a therapist who fits just right.`,    
+  }
 
+  console.log(quiz);
   // if (loading) return <Loading />;
 
   return (
-    <LayoutQuiz data={infoData}>
+    <LayoutQuiz data={pros.length > 0 ? infoData : noMatches}>
       {loading && <Loading />}
       <div className='flex mt-8 flex-wrap gap-8 justify-center'>
         {pros.length > 0 && pros.map(id => <TherapistCardDrawer id={id}/>)}
