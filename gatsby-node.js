@@ -15,7 +15,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const { data } = await graphql(`
       {
         alliApi {
-          pros {
+          availablePros {
             id
             firstName
             lastName
@@ -31,6 +31,7 @@ exports.createPages = async ({ graphql, actions }) => {
             img
             zoom
             isAccepting
+            isAvailable
             education {
               school
               degree
@@ -75,13 +76,13 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/therapists`,
       component: require.resolve('./src/pages/therapists/all.js'),
       context: {
-        pros: data.alliApi.pros,
+        pros: data.alliApi.availablePros.filter(pro => pro.isAvailable),
         modalities: modality.data.alliApi.modalities,
         specializations: specialization.data.alliApi.specializations,
       },
     })
 
-    data.alliApi.pros.forEach((pro) => {
+    data.alliApi.availablePros.forEach((pro) => {
       createPage({
         path: `/therapists/${pro.fullName.split(' ').join('_')}`,
         component: require.resolve('./src/pages/therapists/therapist.js'),
