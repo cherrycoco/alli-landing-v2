@@ -6,15 +6,24 @@ import { Link } from 'gatsby';
 
 const Therapists = ({ pageContext }) => {
   const { pros, specializations, modalities } = pageContext;
+  console.log(pros);
   const [specialization, setSpecialization] = useState(null);
   const [tier, setTier] = useState(null);
   const [modality, setModality] = useState(null);
   const [available, setAvailable] = useState(false);
+  const [type, setType] = useState(null);
+  const [state, setState] = useState(null);
+  const [insurance, setInsurance] = useState(null);
+
+  console.log(state);
 
   const handleClear = () => {
     setSpecialization(null);
     setTier(null);
     setModality(null);
+    setState(null);
+    setType(null);
+    setInsurance(null);
   }
 
   const handleCheck = (e) => {
@@ -43,6 +52,12 @@ const Therapists = ({ pageContext }) => {
               clear={handleClear}
               specializations={specializations}
               modalities={modalities}
+              type={type}
+              setType={setType}
+              state={state}
+              setState={setState}
+              insurance={insurance}
+              setInsurance={setInsurance}
             />
           </div>
           <div className="relative flex justify-end	mt-6 items-start">
@@ -62,7 +77,7 @@ const Therapists = ({ pageContext }) => {
               </label>
             </div>
           </div>
-          <TherapistList pros={pros} specialization={specialization} modality={modality} tier={tier} available={available} />
+          <TherapistList pros={pros} specialization={specialization} modality={modality} tier={tier} available={available} type={type} state={state} insurance={insurance} />
         </div>
       </div>
     </Layout>

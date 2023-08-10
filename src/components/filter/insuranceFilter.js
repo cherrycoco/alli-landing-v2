@@ -6,23 +6,27 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const ModalityFilter = ({ selected, onChange, modalities }) => {
+const insurances = [
+  { id: 'rsw', name: 'Registered Social Worker (RSW)' },
+  { id: 'rp', name: 'Registered Psychotherapist (RP)' },
+];
 
+const InsuranceFilter = ({ selected, onChange }) => {
   return (
     <Combobox as="div" value={selected} onChange={onChange}>
-      <Combobox.Label className="block text-left text-sm font-medium leading-6 text-gray-900">Modality</Combobox.Label>
+      <Combobox.Label className="block text-left text-sm font-medium leading-6 text-gray-900">License Registration</Combobox.Label>
       <div className="relative mt-1">
         <Combobox.Input
           className="w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm sm:leading-6"
           onChange={onChange}
-          displayValue={(person) => person?.name}
+          displayValue={(item) => item?.name}
         />
         <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
           <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
         </Combobox.Button>
 
         <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base text-left shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-          {modalities.map((item) => (
+          {insurances.map((item) => (
             <Combobox.Option
               key={item.id}
               value={item}
@@ -57,4 +61,4 @@ const ModalityFilter = ({ selected, onChange, modalities }) => {
   );
 }
 
-export default ModalityFilter;
+export default InsuranceFilter;

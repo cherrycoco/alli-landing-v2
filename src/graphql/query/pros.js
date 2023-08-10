@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
-const GET_PROS = gql`
+const GET_AVAILABLE_PROS = gql`
 {
   pros {
     id
@@ -34,4 +34,4 @@ const GET_PROS = gql`
   }
 }
 `
-export default GET_PROS;
+export default GET_AVAILABLE_PROS;

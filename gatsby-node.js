@@ -45,6 +45,7 @@ exports.createPages = async ({ graphql, actions }) => {
               id
               name
             }
+            stateIds
           }
         }
       }

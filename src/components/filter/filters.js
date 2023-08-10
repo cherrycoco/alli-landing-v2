@@ -4,8 +4,11 @@ import SpecializationFilter from './specializationFilter';
 import TierFilter from './tierFilter';
 import ModalityFilter from './modalityFilter';
 import ButtonOutline from '../button/buttonOutline';
+import StateFilter from './stateFilter';
+import TypeFilter from './typeFilter';
+import InsuranceFilter from './insuranceFilter';
 
-const Filters = ({ specialization, setSpecialization, modality, setModality, tier, setTier, clear, specializations, modalities }) => {
+const Filters = ({ specialization, setSpecialization, modality, setModality, tier, setTier, clear, specializations, modalities, state, setState, type, setType, insurance, setInsurance }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -16,11 +19,14 @@ const Filters = ({ specialization, setSpecialization, modality, setModality, tie
           <p>Filter Therapists</p>
         </div>
       </ButtonOutline>
-      {open && <div className="flex w-11/12 m-auto flex-col space-y-2 sm:space-y-0 sm:space-x-4 sm:flex-row">
+      {open && <div className="grid grid-cols-2 grid-rows-3 w-full gap-4 mx-auto sm:grid-cols-3 sm:grid-rows-2">
         <TierFilter onChange={val => setTier(val)} selected={tier}/>
         <SpecializationFilter onChange={val => setSpecialization(val)} selected={specialization} specializations={specializations}/>
         <ModalityFilter onChange={val => setModality(val)} selected={modality} modalities={modalities} />
-        <p onClick={clear} className="self-end underline-offset-2 underline text-gray-500 cursor-pointer hover:text-cyan-800">Clear All</p>
+        <StateFilter onChange={val => setState(val)} selected={state} />
+        <TypeFilter onChange={val => setType(val)} selected={type} />
+        <InsuranceFilter onChange={val => setInsurance(val)} selected={insurance} />
+        <p onClick={clear} className="col-span-2 sm:col-span-3 self-end underline-offset-2 underline text-gray-500 cursor-pointer hover:text-cyan-800">Clear All</p>
       </div>}
     </div>
   );

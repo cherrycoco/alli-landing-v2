@@ -1,6 +1,6 @@
 const gql = require('graphql-tag');
 
-const GET_PROS = gql`
+const GET_AVAILABLE_PROS = gql`
 {
   pros {
     id
@@ -32,5 +32,5 @@ const GET_PROS = gql`
 `
 
 module.exports = {
-  GET_PROS,
+  GET_AVAILABLE_PROS,
 };

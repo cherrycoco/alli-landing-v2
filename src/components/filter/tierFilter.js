@@ -16,7 +16,7 @@ const tiers = [
 
 const TierFilter = ({ selected, onChange }) => {
   return (
-    <Combobox className="flex-1" as="div" value={selected} onChange={onChange}>
+    <Combobox as="div" value={selected} onChange={onChange}>
       <Combobox.Label className="block text-left text-sm font-medium leading-6 text-gray-900">Therapist Tier</Combobox.Label>
       <div className="relative mt-1">
         <Combobox.Input

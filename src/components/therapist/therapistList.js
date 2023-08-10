@@ -1,9 +1,11 @@
 import React, { useMemo } from 'react'
 import TherapistCard from '../card/therapistCard';
 
-const TherapistList = ({ pros, modality, specialization, tier, available }) => {
+const TherapistList = ({ pros, modality, specialization, tier, available, type, state, insurance }) => {
+  console.log('state', state)
   const filteredPros = useMemo(() => {
     return pros && pros.filter((pro) => {
+
       // If modality filter is selected, check if the pro has the selected modality
       if (modality && !pro.modalities.some((temp) => temp.id === modality.id)) {
         return false;
@@ -22,11 +24,23 @@ const TherapistList = ({ pros, modality, specialization, tier, available }) => {
       }
   
       if (available && !pro.isAccepting) return false;
+
+      if (insurance) {
+        if (pro.type !== insurance) return false;
+      }
+
+      if (type) {
+        if (type.id === 'couple' && !pro.couple) return false; 
+      }
+
+      if (state) {
+        if (!pro.stateIds.includes(state.id)) return false;
+      }
   
       // If all filters pass, include the pro in the filtered array
       return true;
     });
-  }, [pros, modality, specialization, tier, available]);
+  }, [pros, modality, specialization, tier, available, state, type]);
   
 
   return (
