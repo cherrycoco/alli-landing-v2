@@ -59,8 +59,8 @@ const Rate = () => {
 
   const data = {
     title: `${proSelected.fullName}'s standard rate is $${setRates[tier].max} / session. Does that fit within your budget?`,
-    current: 2,
-    total: 3,
+    current: 3,
+    total: 4,
     next,
     back,
   };

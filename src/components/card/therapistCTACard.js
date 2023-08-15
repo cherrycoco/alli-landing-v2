@@ -8,8 +8,8 @@ import { navigate } from 'gatsby';
 
 const TherapistCTACard = ({ data }) => {
   const { quiz, setQuiz } = useQuiz() || initialQuizContext;
-  const { requestId, pros, tier, rate } = quiz;
-  const { id, fullName, img, isAccepting, role, firstName } = data ? data: {};
+  const { rate, stateId } = quiz;
+  const { id, fullName, img, isAccepting, role, firstName, stateIds } = data ? data: {};
   const [ type, setType ] = useState(''); 
 
   useEffect(() => {
@@ -20,20 +20,26 @@ const TherapistCTACard = ({ data }) => {
     } else if (role === 'licensed' || role === 'supervisor') {
       tempType = 'Advanced Therapist';
     }
+
     setType(capitalize(tempType));
   }, [role]);
 
   const handleClick = () => {
     const newQuiz = {...quiz, proSelected: data};
+
     if (isAccepting) {
       newQuiz.tier = role === 'supervisor' ? 'licensed' : role;
+
       const rateChecked = rateCheck(newQuiz.tier, rate);
+
       setQuiz(newQuiz);
-      if (rateChecked) {
+
+      if (rateChecked && stateId) {
         navigate('/get-started/schedule');
       } else {
-        navigate('/book/location');
+        navigate('/book/age');
       }
+
     } else {
       navigate('https://notionforms.io/forms/alli-therapy-waitlist');
     }
