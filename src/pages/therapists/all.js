@@ -40,7 +40,7 @@ const Therapists = ({ pageContext }) => {
               Not sure where to start? Let us help you match with a therapist best suited for your needs.
             </p>
             <p className="mt-6">
-              <Link to='/get-started/location' className="no-underline text-sm font-semibold leading-6 text-cyan-700">Get Matched <span aria-hidden="true">→</span></Link>
+              <Link to='/get-started/age' className="no-underline text-sm font-semibold leading-6 text-cyan-700">Get Matched <span aria-hidden="true">→</span></Link>
             </p>
             <Filters 
               specialization={specialization}
