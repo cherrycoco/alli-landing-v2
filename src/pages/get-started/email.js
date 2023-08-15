@@ -23,12 +23,16 @@ const Email = () => {
 
 
   useEffect(() => {
-    if (!firstName) {
-      return navigate('/get-started/name');
+    if (!stateId) {
+      return navigate('/get-started/location');
     }
 
     if (rate === 0) {
       return navigate('/get-started/rate');
+    }
+
+    if (!firstName) {
+      return navigate('/get-started/name');
     }
 
     if (data && data.addQuiz) { 
@@ -63,7 +67,7 @@ const Email = () => {
         emailError(`Error - Email`, { quiz, err: message });
       }
     }
-  }, [firstName, rate, data]);
+  }, [firstName, rate, data, stateId]);
 
   const back = () => {
     navigate('/get-started/name');
@@ -77,6 +81,8 @@ const Email = () => {
 
       if (!validEmail) {
         return setError('Please enter a valid email address!');
+      } else if (!stateId) {
+        return setError('Please enter your location!');
       } else {
         setLoading(true);
 
