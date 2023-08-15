@@ -11,6 +11,8 @@ const ScheduleGuidance = ({ quiz, setQuiz }) => {
   const [dateIdxSelected, setDateIdxSelected] = useState(0);
   const { data, loading, error } = useQuery(GET_AVAILABILITY, { variables: { proId: 'xuWDXJNvhuXOa0fcEgIQpaaiSuy1',  duration: 2 }});
 
+  const { stateId } = quiz;
+
   const handleTimeIdxSelect = (idx) => {
     const newQuiz = {
       ...quiz,
@@ -42,6 +44,7 @@ const ScheduleGuidance = ({ quiz, setQuiz }) => {
         <TimeSelector
           times={data.availability[dateIdxSelected].times} 
           handleTimeIdxSelect={handleTimeIdxSelect}
+          tz={stateId}
           />
       </div>
     )

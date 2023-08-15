@@ -17,7 +17,7 @@ const Booking = ({ location }) => {
   const { quiz, setQuiz } = useQuiz() || initialQuizContext;
   const { proSelected, rate, serviceId, stateId } = quiz;
   const date = moment(quiz.date).format('dddd, MMMM Do');
-  const time = timeMap[quiz.time];
+  const time = (serviceId === 'therapy_consult' && stateId === 'BC') ? timeMap[quiz.time - 12] : timeMap[quiz.time];
 
   const onClick = () => navigate('/get-started/age');
 
@@ -38,7 +38,7 @@ const Booking = ({ location }) => {
           </div>) :
           <div className='my-16 mx-auto max-w-xl'>
             <h1 className='text-3xl font-semibold text-gray-800 mb-6'>Let's finalize your guidance session with an Alli Guidance Counsellor:</h1>
-            <p className='text-gray-600 mb-4 text-base'>Your guidance session will be on<b>{` ${date} @ ${time} EST`}</b> for 30 minutes.</p>
+            <p className='text-gray-600 mb-4 text-base'>Your guidance session will be on<b>{` ${date} @ ${time} ${tz[stateId]}`}</b> for 30 minutes.</p>
             <p className='text-gray-600 text-base italic'>Please fill out the details below to secure your spot:</p>
             <BookingForm quiz={quiz} setQuiz={setQuiz} />
           </div>

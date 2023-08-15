@@ -5,11 +5,16 @@ import { AddToCalendarButton } from 'add-to-calendar-button-react';
 import { addMinutesToTime } from '../../util/helpers';
 import useQuiz from '../../context/useQuiz';
 
+const tz = {
+  ON: 'EST',
+  BC: 'PST',
+};
+
 const BookingConfirmation = () => {
   const { quiz, setQuiz } = useQuiz() || {};
-  const { proSelected, user, serviceId, date, time, bookingId } = quiz ? quiz : {};
+  const { proSelected, user, serviceId, date, time, bookingId, stateId } = quiz ? quiz : {};
   const formattedDate = moment(date).format('ddd, MMMM Do YYYY');
-  const timeDisplay = timeMap[time];
+  const timeDisplay = (serviceId === 'therapy_consult' && stateId === 'BC') ? timeMap[time-12] : timeMap[time];
   
   const event = {
     title: `Alli | ${serviceId === 'therapy_consult' ? 'Alli Therapy' : proSelected.fullName} <> ${user.firstName}`,
@@ -23,8 +28,8 @@ const BookingConfirmation = () => {
       <div className='flex flex-col items-center space-y-6'>
         <img src='https://res.cloudinary.com/dhze7gimq/image/upload/v1627938464/alli_landing/Thank-You-_1_uatste.png' /> 
         <h1 className='text-4xl font-bold text-gray-800'>{`${user.firstName}, YOU did it!`}</h1>
-        <h5 className='text-gray-700 text-xl text-center'>{`Your session on ${formattedDate} at ${timeDisplay} EST with ${serviceId === 'therapy_consult' ? 'Alli Therapy' : proSelected.fullName} is booked and ready to go!`}</h5>
-        <AddToCalendarButton
+        <h5 className='text-gray-700 text-xl text-center'>{`Your session on ${formattedDate} at ${timeDisplay} ${tz[stateId]} with ${serviceId === 'therapy_consult' ? 'Alli Therapy' : proSelected.fullName} is booked and ready to go!`}</h5>
+        {serviceId !== 'therapy_consult' && <AddToCalendarButton
           name={event.title}
           options={['Apple','Google', 'Microsoft365', 'MicrosoftTeams', 'Outlook.com', 'Yahoo']}
           description={event.description}
@@ -33,8 +38,8 @@ const BookingConfirmation = () => {
           endDate={date}
           startTime={event.startTime}
           endTime={event.endTime}
-          timeZone="America/Toronto"
-        />
+          timeZone={stateId === 'ON' ? "America/Toronto" : 'BC'}
+        />}
       </div>
       {serviceId !== 'therapy_consult' && 
       <div className='mt-20 space-y-4'>
