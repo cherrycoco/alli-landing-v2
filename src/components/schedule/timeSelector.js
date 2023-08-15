@@ -10,7 +10,7 @@ const TimeSelector = ({ times, handleTimeIdxSelect, tz }) => {
       {times && times.map((time, idx) => {
         if (time) {
           return (
-            <SimpleSelect key={idx} onSelect={() => handleTimeIdxSelect(idx)} title={tz === 'ON' ? timeMap[idx] : timeMap[idx-12]} />
+            <SimpleSelect key={idx} onSelect={() => handleTimeIdxSelect(idx)} title={tz && tz === 'BC' ? timeMap[idx-12] : timeMap[idx]} />
           );
         }
       })}
