@@ -35,8 +35,8 @@ const SelectRate = () => {
   const data = {
     title: `Select a session rate that works for you`,
     description: 'We never want price to stand in the way of you accessing high quality therapy. There is no catch here, simply slide to a price that fits your current budget.',
-    current: 4,
-    total: 11,
+    current: 5,
+    total: 12,
     next,
     back,
   };

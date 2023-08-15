@@ -38,8 +38,8 @@ const Goals = () => {
   const data = {
     title: 'What type of therapy are you looking for?',
     description: 'Select all that apply',
-    current: 7,
-    total: 11,
+    current: 8,
+    total: 12,
     next,
     back,
   };

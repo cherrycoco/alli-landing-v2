@@ -9,7 +9,7 @@ const AlertError = () => {
           <XCircleIcon className="h-5 w-5 text-red-400" aria-hidden="true" />
         </div>
         <div className="ml-3">
-          <h3 className="text-sm font-medium text-red-800">Right now,  we are only able to support Alli's who are 18 years old and up and living in Ontario.</h3>
+          <h3 className="text-sm font-medium text-red-800">Right now, we are only able to support Alli's who are 18 years old and up and living in Ontario or British Columbia.</h3>
           <div className="mt-2 text-sm text-red-700">
             If you'd like support in finding resources for other clinics, don't hesitate to drop us a line at hello@alli.io! We'd love to help you out.
           </div>

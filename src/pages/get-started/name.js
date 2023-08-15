@@ -55,8 +55,8 @@ const Name = () => {
 
   const data = {
     title: `$${rate} per session it is - what's your first name?`,
-    current: 5,
-    total: 11,
+    current: 6,
+    total: 12,
     next,
     back,
   }

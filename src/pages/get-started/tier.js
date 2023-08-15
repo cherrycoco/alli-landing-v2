@@ -49,8 +49,8 @@ const Experience = () => {
   const data = {
     title: 'Which tier of therapist would you like to work with?',
     description: 'All of our therapists are fully trained to support you and some come with a little more experience.',
-    current: 2,
-    total: 11,
+    current: 3,
+    total: 12,
     next,
     back,
   };

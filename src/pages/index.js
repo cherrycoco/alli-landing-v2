@@ -28,7 +28,7 @@ const hero = {
 
 const IndexPage = ({ location }) => {
   const cta = () => {
-    navigate('/get-started/location');
+    navigate('/get-started/age');
   };
 
   return (

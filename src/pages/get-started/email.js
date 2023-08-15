@@ -16,7 +16,8 @@ const Email = () => {
   const [email, setEmail] = useState(quiz ? quiz.email : '');
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { firstName, rate, requestId, tier, referrer, isPaidReferrer } = quiz;
+  const { firstName, rate, requestId, tier, referrer, isPaidReferrer, stateId } = quiz;
+  console.log(quiz);
 
   const [addQuiz, { data }] = useMutation(ADD_QUIZ);
 
@@ -92,7 +93,8 @@ const Email = () => {
             isPaidReferrer,
             stage: tier,
             rate,
-            status: 'QUIZ_STARTED'
+            status: 'QUIZ_STARTED',
+            stateId,
           }
         };
 
@@ -125,8 +127,8 @@ const Email = () => {
 
   const infoData = {
     title: `${firstName}, what's the best email to reach you?`,
-    current: 6,
-    total: 11,
+    current: 7,
+    total: 12,
     next,
     back,
   };

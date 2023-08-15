@@ -29,8 +29,8 @@ const TherapistGoals = () => {
   const data = {
     title: 'I want a therapist that will...',
     description: '(Select all that apply)',
-    current: 8,
-    total: 11,
+    current: 9,
+    total: 12,
     next,
     back,
   };

@@ -48,8 +48,8 @@ const Type = () => {
 
   const data = {
     title: 'What type of therapy are you looking for?',
-    current: 7,
-    total: 11,
+    current: 8,
+    total: 12,
     next,
     back,
   };

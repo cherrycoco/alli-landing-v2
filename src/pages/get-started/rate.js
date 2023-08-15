@@ -53,8 +53,9 @@ const Rate = () => {
 
   const data = {
     title: `Our resident therapist's standard rate is $90. Does that fit within your budget?`,
-    current: 3,
-    total: 11,
+    description: 'This rate is for a 50-minute session.',
+    current: 4,
+    total: 12,
     next,
     back,
   };

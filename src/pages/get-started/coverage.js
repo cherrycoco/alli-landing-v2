@@ -11,7 +11,7 @@ import Error from "../../components/error/error";
 
 const Coverage = () => {
   const { quiz, setQuiz } = useQuiz() || {};
-  const { isInsurance, requestId, type, rate, user, tier } = quiz;
+  const { isInsurance, requestId, type, rate, user, tier, stateId } = quiz;
   const [addQuiz, { data, called, loading } ] = useMutation(ADD_QUIZ);
   const [error, setError] = useState(null);
 
@@ -94,6 +94,7 @@ const Coverage = () => {
         status: 'QUIZ_COMPLETED',
         stage: tier,
         rate,
+        stateId,
       }
     };
 
@@ -104,8 +105,8 @@ const Coverage = () => {
   const infoData = {
     title: 'What does your insurance plan provide coverage for?',
     description: 'Our therapists are Psychotherapists and Social Workers. (Select all that apply)',
-    current: 11,
-    total: 11,
+    current: 12,
+    total: 12,
     next,
     back,
   };

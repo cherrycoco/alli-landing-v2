@@ -14,7 +14,8 @@ export const initialUserState = {
 export const initialQuizState = {
   user: {},
   requestId: '',
-  isOntario: '',
+  stateId: '',
+  isAdult: '',
   tier: '',
   isStandardRate: null,
   rate: 0,

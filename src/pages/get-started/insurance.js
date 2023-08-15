@@ -12,7 +12,7 @@ import Error from "../../components/error/error";
 
 const Insurance = () => {
   const { quiz, setQuiz } = useQuiz() || {};
-  const { isInsurance, requestId, type, rate, user, tier } = quiz;
+  const { isInsurance, requestId, type, rate, user, tier, stateId } = quiz;
   const [addQuiz, { data, called, loading } ] = useMutation(ADD_QUIZ);
   const [error, setError] = useState(null);
 
@@ -84,6 +84,7 @@ const Insurance = () => {
           status: 'QUIZ_COMPLETED',
           stage: tier,
           rate,
+          stateId,
         }
       };
 
@@ -94,8 +95,8 @@ const Insurance = () => {
 
   const infoData = {
     title: 'Do you have extended health insurance?',
-    current: 9,
-    total: 11,
+    current: 10,
+    total: 12,
     next,
     back,
   };
