@@ -23,12 +23,12 @@ const GET_BOOKING = gql`
         firstName
         lastName
         stripe
+        stateId
       }
       pro {
         id
         firstName
         fullName
-        title
       }
       rate {
         rate
