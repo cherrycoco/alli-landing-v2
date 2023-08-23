@@ -26,7 +26,6 @@ const BookingConfirmation = () => {
   return (
     <div>
       <div className='flex flex-col items-center space-y-6'>
-        <img src='https://res.cloudinary.com/dhze7gimq/image/upload/v1627938464/alli_landing/Thank-You-_1_uatste.png' /> 
         <h1 className='text-4xl font-bold text-gray-800'>{`${user.firstName}, YOU did it!`}</h1>
         <h5 className='text-gray-700 text-xl text-center'>{`Your session on ${formattedDate} at ${timeDisplay} ${tz[stateId]} with ${serviceId === 'therapy_consult' ? 'Alli Therapy' : proSelected.fullName} is booked and ready to go!`}</h5>
         {serviceId !== 'therapy_consult' && <AddToCalendarButton
@@ -38,7 +37,7 @@ const BookingConfirmation = () => {
           endDate={date}
           startTime={event.startTime}
           endTime={event.endTime}
-          timeZone={stateId === 'ON' ? "America/Toronto" : 'BC'}
+          timeZone={stateId === 'ON' ? "America/Toronto" : "America/Vancouver"}
         />}
       </div>
       {serviceId !== 'therapy_consult' && 

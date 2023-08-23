@@ -6,6 +6,7 @@ const GET_BOOKING = gql`
       id
       date
       startTime
+      stateId
       service {
         id
         type
@@ -23,7 +24,6 @@ const GET_BOOKING = gql`
         firstName
         lastName
         stripe
-        stateId
       }
       pro {
         id
