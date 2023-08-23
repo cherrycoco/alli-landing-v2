@@ -10,8 +10,8 @@
 
 module.exports = {
   siteMetadata: {
-    title: `Alli Therapy - Online Therapy for Parents in Ontario`,
-    description: `Get matched easily with a licensed counsellor who specialize in helping parents. Our therapists understand the journey of parenthood and are here to help you navigate the challenges.`,
+    title: `Affordable Online Therapy for Ontario and BC Residents | Alli Therapy`,
+    description: `Therapy starting at just $35 for a 50-minute session. Get matched with a certified psychotherapist within minutes. Begin your journey to wellbeing today.`,
     author: `@alli.io`,
     siteUrl: `https://www.alli.io`,
   },
