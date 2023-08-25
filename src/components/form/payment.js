@@ -79,7 +79,7 @@ const Payment = ({ booking }) => {
         </div>
         {booking.service.type === 'rp' &&
           <div className='flex justify-between'>
-            <p>{`Tax (${booking.user.stateId === 'ON' ? `13% HST` : '5% GST'})`}</p>
+            <p>{`Tax (${booking.stateId === 'ON' ? `13% HST` : '5% GST'})`}</p>
             <p>{`$${tax}`}</p>
           </div>
         }
