@@ -30,7 +30,7 @@ const Payment = ({ booking }) => {
   const date = moment(booking.date).format('dddd, MMMM Do');
   const time = timeMap[booking.startTime];
   const subTotal = servicePrice;
-  const tax = round(taxes[booking.stateId] * subTotal);
+  const tax = booking.service.type === 'rp' ? round(taxes[booking.stateId] * subTotal) : 0;
   const total = subTotal + tax;
 
   const handleClick = async (e) => {
