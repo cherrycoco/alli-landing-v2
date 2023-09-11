@@ -20,7 +20,7 @@ const tz = {
 };
 
 const taxes = {
-  ON: 0.12,
+  ON: 0.13,
   BC: 0.05,
 };
 
