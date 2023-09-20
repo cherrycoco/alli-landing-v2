@@ -55,7 +55,7 @@ const Matched = ({ location }) => {
   return (
     <LayoutQuiz data={pros.length > 0 ? infoData : noMatches}>
       {loading && <Loading />}
-      <div className='flex mt-8 flex-wrap gap-8 justify-center'>
+      <div className={pros.length === 4 ? 'flex mt-8 flex-wrap gap-8 justify-center mx-auto max-w-3xl' : 'flex mt-8 flex-wrap gap-8 justify-center'}>
         {pros.length > 0 && pros.map(id => <TherapistCardDrawer id={id}/>)}
       </div>
       <div className='w-4/5 m-auto pb-48'>
