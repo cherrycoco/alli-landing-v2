@@ -18,7 +18,7 @@ import { navigate } from 'gatsby';
 const BookingForm = ({ quiz, setQuiz }) => {
   const [showConsent, setShowConsent] = useState(false);
   const [showTerms, setShowTerms] = useState(false);
-  const { requestId, date, time, proSelected, user, rate, serviceId, referrer, isPaidReferrer } = quiz;
+  const { requestId, date, time, proSelected, user, rate, serviceId, referrer, isPaidReferrer, stateId } = quiz;
   const [state, setState] = useState({
     firstName: user ? user.firstName : '',
     lastName: user ? user.lastName : '',
@@ -215,6 +215,7 @@ const BookingForm = ({ quiz, setQuiz }) => {
           userId: user ? user.id : '',
           referrer,
           isPaidReferrer,
+          stateId,
         },
         booking: {
           userId: user ? user.id : '',
@@ -225,6 +226,7 @@ const BookingForm = ({ quiz, setQuiz }) => {
           bookingStatus: 'BOOKED',
           bookingSource: 'user',
           paymentStatus: serviceId === 'therapy_consult' ? 'PAID' : 'UNPAID',
+          stateId,
         },
       };
 

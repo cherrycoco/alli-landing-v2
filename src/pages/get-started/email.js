@@ -81,36 +81,38 @@ const Email = () => {
 
       if (!validEmail) {
         return setError('Please enter a valid email address!');
-      } else if (!stateId) {
-        return setError('Please enter your location!');
-      } else {
-        setLoading(true);
-
-        setQuiz({
-          ...quiz,
-          email: validEmail,
-        });
-
-        const variables = {
-          quiz: {
-            firstName,
-            email: validEmail,
-            referrer,
-            isPaidReferrer,
-            stage: tier,
-            rate,
-            status: 'QUIZ_STARTED',
-            stateId,
-          }
-        };
-
-        if (requestId) {
-          variables.quiz.id = requestId;
-        }
-
-        console.log(variables);
-        addQuiz({ variables });
+      } 
+      
+      if (!stateId) {
+        return setError('Please go back to the beginning of the matching quiz and select your location!');
       }
+
+      setLoading(true);
+
+      setQuiz({
+        ...quiz,
+        email: validEmail,
+      });
+
+      const variables = {
+        quiz: {
+          firstName,
+          email: validEmail,
+          referrer,
+          isPaidReferrer,
+          stage: tier,
+          rate,
+          status: 'QUIZ_STARTED',
+          stateId,
+        }
+      };
+
+      if (requestId) {
+        variables.quiz.id = requestId;
+      }
+
+      console.log(variables);
+      addQuiz({ variables });
     } catch (err) {
       setLoading(false);
       setError('Sorry, there seems to be a problem creating your request. Please refresh the page and re-start the quiz!');
