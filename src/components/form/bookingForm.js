@@ -34,13 +34,12 @@ const BookingForm = ({ quiz, setQuiz }) => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
 
-  console.log(quiz);
-
   useEffect(() => {
     if (data && data.addBookingUser) { 
       const { success, message, booking, user } = data.addBookingUser;
       console.log(data);
       setLoading(false);
+
       if (success) {
         setQuiz({
           ...quiz,
@@ -212,15 +211,15 @@ const BookingForm = ({ quiz, setQuiz }) => {
           lastName: lastNameF,
           email: formattedEmail,
           tel: formattedTel,
-          userId: user ? user.id : '',
+          userId: user.id ? user.id : '',
           referrer,
           isPaidReferrer,
-          stateId,
         },
         booking: {
-          userId: user ? user.id : '',
+          userId: user.id ? user.id : '',
           date,
           startTime: time,
+          // proId: 'SYpRQoB0ciaBmth18faT6y7GiFg1',
           proId: serviceId === 'therapy_consult' ? 'xuWDXJNvhuXOa0fcEgIQpaaiSuy1' : proSelected.id,
           serviceId: serviceId === 'therapy_consult' ? 'therapy_consult' : `${proSelected.type}_initial_60`,
           bookingStatus: 'BOOKED',
