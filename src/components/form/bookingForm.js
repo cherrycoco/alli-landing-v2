@@ -38,7 +38,6 @@ const BookingForm = ({ quiz, setQuiz }) => {
     if (data && data.addBookingUser) { 
       const { success, message, booking, user } = data.addBookingUser;
       console.log(data);
-      setLoading(false);
 
       if (success) {
         setQuiz({
@@ -70,9 +69,11 @@ const BookingForm = ({ quiz, setQuiz }) => {
             }
           }
         };
+        setLoading(false);
         navigate(`/thank-you?booking-confirmation`);
       } else {
         emailError(`Error - Add Booking`, { quiz, state, err: message });
+        setLoading(false);
         setError(message);
       }
     }
