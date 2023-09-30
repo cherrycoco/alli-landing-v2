@@ -95,4 +95,4 @@ exports.createPages = async ({ graphql, actions }) => {
   } catch (error) {
     console.error('Error fetching pros:', error);
   };
-};
+}
