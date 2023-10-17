@@ -9,7 +9,7 @@ import TherapistCardDrawer from "../../components/card/therapistCardDrawer";
 
 const Matched = ({ location }) => {
   const { quiz, setQuiz } = useQuiz() || {};
-  const requestId = location.search && location.search.slice(1);
+  const requestId = location.search && location.search.slice(1).split('&')[0];
   const { data, loading, error } = useQuery(GET_REQUEST, { 
     variables: { id: requestId },
     fetchPolicy: 'network-only'
@@ -50,11 +50,11 @@ const Matched = ({ location }) => {
   }
 
   console.log(quiz);
-  // if (loading) return <Loading />;
+  if (loading) return <Loading />;
 
   return (
     <LayoutQuiz data={pros.length > 0 ? infoData : noMatches}>
-      {loading && <Loading />}
+      {/* {loading && <Loading />} */}
       <div className={pros.length === 4 ? 'flex mt-8 flex-wrap gap-8 justify-center mx-auto max-w-3xl' : 'flex mt-8 flex-wrap gap-8 justify-center'}>
         {pros.length > 0 && pros.map(id => <TherapistCardDrawer id={id}/>)}
       </div>
