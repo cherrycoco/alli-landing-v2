@@ -11,7 +11,10 @@ const benefits = [
 
 const Consult = ({ quiz, setQuiz }) => {
   const onClick = () => {
-    setQuiz({...quiz, serviceId: 'therapy_consult'});
+    setQuiz({
+      ...quiz, 
+      serviceId: 'therapy_consult'
+    });
     navigate('/get-started/schedule');
   }
 

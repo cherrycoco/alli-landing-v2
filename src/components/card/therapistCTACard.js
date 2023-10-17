@@ -11,6 +11,7 @@ const TherapistCTACard = ({ data }) => {
   const { rate, stateId } = quiz;
   const { id, fullName, img, isAccepting, role, firstName, stateIds } = data ? data: {};
   const [ type, setType ] = useState(''); 
+  console.log(data);
 
   useEffect(() => {
     let tempType = 'Resident Therapist';
@@ -25,7 +26,11 @@ const TherapistCTACard = ({ data }) => {
   }, [role]);
 
   const handleClick = () => {
-    const newQuiz = {...quiz, proSelected: data};
+    const newQuiz = {
+      ...quiz, 
+      proSelected: data,
+      serviceId: `${data.type}_initial_60`,
+    };
 
     if (isAccepting) {
       newQuiz.tier = role === 'supervisor' ? 'licensed' : role;
@@ -39,10 +44,11 @@ const TherapistCTACard = ({ data }) => {
       } else {
         navigate('/book/age');
       }
-
     } else {
       navigate('https://notionforms.io/forms/alli-therapy-waitlist');
     }
+
+    console.log(newQuiz)
   }
 
   const rateCheck = (proTier, rateSelected) => {
