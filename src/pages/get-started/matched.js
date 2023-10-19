@@ -58,9 +58,9 @@ const Matched = ({ location }) => {
       <div className={pros.length === 4 ? 'flex mt-8 flex-wrap gap-8 justify-center mx-auto max-w-3xl' : 'flex mt-8 flex-wrap gap-8 justify-center'}>
         {pros.length > 0 && pros.map(id => <TherapistCardDrawer id={id}/>)}
       </div>
-      <div className='w-4/5 m-auto pb-48'>
+      {/* <div className='w-4/5 m-auto pb-48'>
         <Consult quiz={quiz} setQuiz={setQuiz} />
-      </div>
+      </div> */}
     </LayoutQuiz>
   );
 }
