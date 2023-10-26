@@ -7,7 +7,7 @@ function classNames(...classes) {
 }
 
 const states = [
-  { id: 'BC', name: 'British Colombia' },
+  { id: 'BC', name: 'British Columbia' },
   { id: 'ON', name: 'Ontario' },
 ];
 
