@@ -90,8 +90,8 @@ exports.createPages = async ({ graphql, actions }) => {
         context: {
           data: pro,
         },
-      });
-    });
+      })
+    })
   } catch (error) {
     console.error('Error fetching pros:', error);
   }

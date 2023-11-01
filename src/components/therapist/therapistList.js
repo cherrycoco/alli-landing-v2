@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import TherapistCard from '../card/therapistCard';
 
 const TherapistList = ({ pros, modality, specialization, tier, available, type, state, insurance }) => {
-  console.log('state', state)
+  console.log('state', state, insurance)
   const filteredPros = useMemo(() => {
     return pros && pros.filter((pro) => {
 
@@ -26,7 +26,7 @@ const TherapistList = ({ pros, modality, specialization, tier, available, type, 
       if (available && !pro.isAccepting) return false;
 
       if (insurance) {
-        if (pro.type !== insurance) return false;
+        if (pro.type !== insurance.id) return false;
       }
 
       if (type) {
@@ -40,7 +40,7 @@ const TherapistList = ({ pros, modality, specialization, tier, available, type, 
       // If all filters pass, include the pro in the filtered array
       return true;
     });
-  }, [pros, modality, specialization, tier, available, state, type]);
+  }, [pros, modality, specialization, tier, available, state, type, insurance]);
   
 
   return (
