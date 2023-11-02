@@ -24,6 +24,7 @@ const TherapistCardDrawer = ({ id }) => {
 
   if (loading) return <Loading />;
   if (error) return <p>Error</p>;
+  if (!data.pro) return;
 
   const { pro: { fullName, img, isAccepting, role } } = data;
 
