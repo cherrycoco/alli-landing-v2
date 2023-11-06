@@ -133,13 +133,12 @@ const Intake2 = ({ user, userId }) => {
   useEffect(() => {
     if (data && data.updateIntake) { 
       const { success, message } = data.updateIntake;
-      setLoading(false);
       if (success) {
-        // console.log('success');
         navigate(`/thank-you?intake`);
       } else {
         setError(message);
       }
+      setLoading(false);
     }
   }, [data])
 

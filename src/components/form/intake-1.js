@@ -93,7 +93,7 @@ const Intake1 = ({ user }) => {
       return handleError('Looks like your emergency contact phone number is missing!');
     };
     
-    // setLoading(true);
+    setLoading(true);
 
     const { street, city, province, postalCode, country } = formatAddress(address);
     const formattedEmail = formatAndValidateEmail(email);
