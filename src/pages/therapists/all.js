@@ -31,7 +31,7 @@ const Therapists = ({ pageContext }) => {
   }
 
   return (
-    <Layout footer>
+    <Layout>
       <div className="bg-white pb-24">
         <div className="px-4 text-center sm:px-6 lg:px-8">
           <div className="pt-24 pb-3 border-b border-gray-200">
@@ -40,7 +40,7 @@ const Therapists = ({ pageContext }) => {
               Not sure where to start? Let us help you match with a therapist best suited for your needs.
             </p>
             <p className="mt-6">
-              <Link to='/get-started/age' className="no-underline text-sm font-semibold leading-6 text-cyan-700">Get Matched <span aria-hidden="true">→</span></Link>
+              <Link to='/get-started' className="no-underline text-sm font-semibold leading-6 text-cyan-700">Get Matched <span aria-hidden="true">→</span></Link>
             </p>
             <Filters 
               specialization={specialization}

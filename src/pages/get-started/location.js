@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import LayoutQuiz from "../../components/layout/layoutQuiz";
-import Tier from "../../components/tier/tier";
 import SimpleSelect from "../../components/select/simpleSelect";
 import { navigate } from "gatsby";
 import useQuiz from "../../context/useQuiz";
@@ -22,7 +21,7 @@ const Location = () => {
   const { stateId } = quiz;
 
   const back = () => {
-    navigate('/get-started/age');
+    navigate('/get-started');
   }
 
   const handleSelect = (select) => {

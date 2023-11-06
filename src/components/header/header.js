@@ -14,7 +14,7 @@ const Header = () => {
           <Link to='/therapists'>
             <span className="text-sm leading-6 text-gray-900">Our Therapists</span>
           </Link>
-          <Link to='/get-started/age'>
+          <Link to='/get-started'>
             <Button>Get Matched</Button>
           </Link>
         </div>

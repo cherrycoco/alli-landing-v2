@@ -8,13 +8,13 @@ const CheckboxSimple = ({ data }) => {
         <input
           name={name}
           type="checkbox"
-          className="h-4 w-4 rounded border-gray-300 text-cyan-800 focus:ring-cyan-800"
+          className="h-5 w-5 cursor-pointer rounded border-gray-300 text-cyan-800 focus:ring-cyan-800"
           onChange={onChange}
           checked={checked}
         />
       </div>
       <div className="text-sm leading-6">
-        <p className="text-gray-500">{label}</p>
+        <p className="text-gray-600">{label}</p>
       </div>
     </div>
   )

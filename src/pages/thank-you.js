@@ -21,6 +21,11 @@ const ThankYouPage = ({ location }) => {
           <h1 className='text-2xl font-semibold text-gray-800 mb-6'>Your card details have been securely saved!</h1>
           <p className='text-gray-600 mb-4 text-lg'>Thank you for taking this step. We're excited for your upcoming therapy sessions!</p>
         </div>}
+        {id === 'intake' && 
+        <div className="text-center">
+          <h1 className='text-2xl font-semibold text-gray-800 mb-6'>Your intake information has been securely saved!</h1>
+          <p className='text-gray-600 mb-4 text-lg'>Thank you for taking the time to complete it. We're looking forward to your upcoming therapy sessions!</p>
+        </div>}
         <Share 
           url='https://alli.io/'
           title='Be an Alli: Spread the words'

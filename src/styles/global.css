@@ -62,7 +62,7 @@ input[type='checkbox'], input[type='radio'] {
   height: 20px;
 }
 
-input:focus, textarea:focus {
+[type='text']:focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus {
   --tw-ring-color: none;
   border-color: #155175; 
 }

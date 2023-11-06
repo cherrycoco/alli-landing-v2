@@ -30,7 +30,7 @@ const SchedulePage = ({ location }) => {
         {(!id && !serviceId)? (<div className='mt-16 mx-auto max-w-5xl'>
           <h1 className='text-2xl font-semibold text-gray-700 text-center mb-10'>{`You have not selected a therapist to book with!`}</h1>
           <div>
-            <Button className="mx-auto block" onClick={() => navigate('/get-started/age')} >Get Matched With A Therapist<span aria-hidden="true">&rarr;</span></Button>
+            <Button className="mx-auto block" onClick={() => navigate('/get-started')} >Get Matched With A Therapist<span aria-hidden="true">&rarr;</span></Button>
           </div>
         </div>) :
         serviceId !== 'therapy_consult' ? 

@@ -149,11 +149,41 @@ const isWithin24Hours = (date, timeIdx) => {
   return false;
 };
 
+const formatAddress = (address) => {
+  if (!address) {
+    return {};
+  } else {
+    const street = [];
+    const result = {
+      address: address.formatted_address,
+    }
+
+    for (let i = 0; i < address.address_components.length; i++) {
+      const {types, short_name} = address.address_components[i];
+      if (types.includes('street_number') || types.includes('route')) {
+        street.push(short_name);
+      } else if (types.includes('locality')) {
+        result.city = short_name;
+      } else if (types.includes('administrative_area_level_1')) {
+        result.province = short_name;
+      } else if (types.includes('country')) {
+        result.country = short_name;
+      } else if (types.includes('postal_code')) {
+        result.postalCode = short_name;
+      }
+    }
+    
+    result.street = street.join(' ');
+    return result;
+  }
+};
+
 export { 
   capitalize,
   formatName,
   formatAndValidateEmail,
   formatTel,
+  formatAddress,
   formatAndValidateZoom,
   isValidLength,
   splitAndJoin,

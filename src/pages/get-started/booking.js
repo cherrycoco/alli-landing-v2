@@ -19,7 +19,7 @@ const Booking = ({ location }) => {
   const date = moment(quiz.date).format('dddd, MMMM Do');
   const time = (serviceId === 'therapy_consult' && stateId === 'BC') ? timeMap[quiz.time - 12] : timeMap[quiz.time];
 
-  const onClick = () => navigate('/get-started/age');
+  const onClick = () => navigate('/get-started');
 
   return (
     <Layout>
