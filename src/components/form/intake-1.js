@@ -177,7 +177,7 @@ const Intake1 = ({ user }) => {
         <input required type='text' value={emergencyContactName} onChange={e => setEmergencyContactName(e.target.value)} />
       </div>
       <div>
-        <label>What's the phone number of your emergenct contact?</label>
+        <label>What's the phone number of your emergency contact?</label>
         <input required type='tel' value={emergencyContactTel} onChange={e => setEmergencyContactTel(e.target.value)} />
       </div>
       <div>
