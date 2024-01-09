@@ -73,15 +73,15 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     `);
 
-    createPage({
-      path: `/therapists`,
-      component: require.resolve('./src/pages/therapists/all.js'),
-      context: {
-        pros: data.alliApi.availablePros.filter(pro => pro.isAvailable),
-        modalities: modality.data.alliApi.modalities,
-        specializations: specialization.data.alliApi.specializations,
-      },
-    })
+    // createPage({
+    //   path: `/therapists`,
+    //   component: require.resolve('./src/pages/therapists/all.js'),
+    //   context: {
+    //     pros: data.alliApi.availablePros.filter(pro => pro.isAvailable),
+    //     modalities: modality.data.alliApi.modalities,
+    //     specializations: specialization.data.alliApi.specializations,
+    //   },
+    // })
 
     data.alliApi.availablePros.forEach((pro) => {
       createPage({
@@ -91,7 +91,7 @@ exports.createPages = async ({ graphql, actions }) => {
           data: pro,
         },
       })
-    })
+    });
   } catch (error) {
     console.error('Error fetching pros:', error);
   }
