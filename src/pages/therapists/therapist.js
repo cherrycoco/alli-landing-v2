@@ -11,7 +11,7 @@ import Redirect from '../../components/redirect/redirect';
 const Therapist = ({ pageContext, location }) => {
   const { data } = pageContext;
   const { role, type, firstName, bio, specializations, modalities, education, fullName } = data ? data : initialProState;
-  const externalUrl = `https://client.alli.io/therapists/${fullName.split(' ').join('_')}`;
+  const externalUrl = `https://client.alli.io/therapists`;
 
   return (
     <Redirect
