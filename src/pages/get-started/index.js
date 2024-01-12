@@ -32,20 +32,26 @@ const Location = () => {
     back,
   };
 
+  const externalUrl = 'https://client.alli.io/get-started';
   return (
-    <LayoutQuiz data={data} footer>
-      <div className='flex mt-8 flex-wrap'>
-        {trueOrFalse.map(item => 
-          <SimpleSelect 
-            isActive={isAdult === item.key ? true : false}
-            onSelect={() => handleSelect(item.key)}
-            title={item.name}
-            key={item.key}
-          />
-        )}
-      </div>
-      {isAdult === false && <AlertError />}
-    </LayoutQuiz>
+
+      <Redirect
+        to={externalUrl}
+        query={location.search}
+      />
+    // <LayoutQuiz data={data} footer>
+    //   <div className='flex mt-8 flex-wrap'>
+    //     {trueOrFalse.map(item => 
+    //       <SimpleSelect 
+    //         isActive={isAdult === item.key ? true : false}
+    //         onSelect={() => handleSelect(item.key)}
+    //         title={item.name}
+    //         key={item.key}
+    //       />
+    //     )}
+    //   </div>
+    //   {isAdult === false && <AlertError />}
+    // </LayoutQuiz>
   );
 }
 
